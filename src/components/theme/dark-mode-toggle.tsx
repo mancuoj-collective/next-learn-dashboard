@@ -3,8 +3,9 @@
 import * as React from 'react'
 
 import { useTheme } from '@/hooks/use-theme'
+import { cn } from '@/lib/utils'
 
-export function DarkModeToggle() {
+export function DarkModeToggle({ className }: { className?: string }) {
   const { toggleDark } = useTheme()
 
   return (
@@ -13,7 +14,7 @@ export function DarkModeToggle() {
       title="toggle dark mode"
       type="button"
       onClick={toggleDark}
-      className="flex items-center justify-center"
+      className={cn('flex items-center justify-center', className)}
     >
       <div
         role="img"
