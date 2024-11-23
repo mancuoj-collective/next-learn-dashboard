@@ -1,16 +1,10 @@
 'use client'
 
-import { LucideFileText, LucideHome, LucideUsers } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { links } from '@/config/nav'
 import { cn } from '@/lib/utils'
-
-const links = [
-  { name: 'Home', href: '/dashboard', icon: LucideHome },
-  { name: 'Invoices', href: '/dashboard/invoices', icon: LucideFileText },
-  { name: 'Customers', href: '/dashboard/customers', icon: LucideUsers },
-]
 
 export function NavLinks() {
   const pathname = usePathname()
