@@ -7,7 +7,7 @@ const isDarkAtom = atomDark({
   disableTransitionExclude: ['.sun', '.moon'],
 })
 
-export function useTheme() {
+export function useDark() {
   const [isDark, setIsDark] = useAtom(isDarkAtom)
   return {
     isDark,

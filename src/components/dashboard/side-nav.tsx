@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 import { AcmeLogo } from '../acme-logo'
-import { DarkModeToggle } from '../theme'
+import { ThemeDialog } from '../theme'
 import { NavLinks } from './nav-links'
 
 export function SideNav() {
@@ -30,7 +30,8 @@ export function SideNav() {
               <div className="hidden md:block">Sign Out</div>
             </button>
           </form>
-          <DarkModeToggle className="h-12 rounded-md bg-secondary p-3 hover:bg-primary/20 hover:text-primary/80 md:py-2" />
+          {/* <DarkModeToggle className="h-12 rounded-md bg-secondary p-3 hover:bg-primary/20 hover:text-primary/80 md:py-2" /> */}
+          <ThemeDialog />
         </div>
       </div>
     </div>
