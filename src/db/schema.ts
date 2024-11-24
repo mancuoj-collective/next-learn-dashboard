@@ -13,7 +13,7 @@ export const customers = createTable('customer', {
   id: text('id', { length: 255 }).notNull().primaryKey(),
   name: text('name', { length: 255 }).notNull(),
   email: text('email', { length: 255 }).notNull(),
-  image_url: text('image_url'),
+  image_url: text('image_url').notNull(),
 })
 
 export const invoices = createTable('invoice', {

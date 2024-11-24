@@ -21,7 +21,7 @@ export default function Page() {
 
 function Login() {
   return (
-    <div className={cn('flex flex-col justify-center gap-6 rounded-lg bg-secondary', 'px-6 py-10 md:w-2/5 md:px-20')}>
+    <div className={cn('flex flex-col justify-center gap-6 rounded-lg bg-secondary text-secondary-foreground', 'px-6 py-10 md:w-2/5 md:px-20')}>
       <p className={cn('text-xl md:text-3xl md:leading-normal', lusitana.className)}>
         <strong>Welcome to Acme.</strong>
         {' '}

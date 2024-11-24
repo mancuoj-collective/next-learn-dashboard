@@ -9,7 +9,7 @@ type Config = {
 }
 
 export const defaultConfig: Config = {
-  theme: 'violet',
+  theme: 'blue',
   radius: 0.5,
 }
 
