@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: '%s | Acme Dashboard',
     default: 'Acme Dashboard',
   },
-  description: 'Rewrite Next Learn Course with Drizzle ORM, Next Auth and Shadcn/UI',
+  description: 'Rewrite Next Learn Course with Drizzle ORM, SQLite and Shadcn/UI.',
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
   // metadataBase: new URL('https://acme-dashboard.vercel.app'),
 }
