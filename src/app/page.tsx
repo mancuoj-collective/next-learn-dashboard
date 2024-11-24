@@ -56,6 +56,7 @@ function Hero() {
         height={760}
         alt="Screenshots of the dashboard project showing desktop version"
         className="hidden md:block"
+        priority
       />
       <Image
         src="/hero-mobile.png"
