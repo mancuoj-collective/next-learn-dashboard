@@ -4,18 +4,19 @@ import '@/styles/themes.css'
 import type { Metadata } from 'next'
 
 import { inter } from '@/components/fonts'
+import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 
 import { AppProvider } from './provider'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Acme Dashboard',
-    default: 'Acme Dashboard',
+    template: `%s | ${siteConfig.name}`,
+    default: siteConfig.name,
   },
-  description: 'Rewrite Next.js Learn Course with Drizzle ORM, SQLite and Shadcn/UI.',
+  description: siteConfig.description,
   icons: [{ rel: 'icon', url: '/favicon.ico' }],
-  // metadataBase: new URL('https://acme-dashboard.vercel.app'),
+  metadataBase: new URL(siteConfig.url),
 }
 
 export default function RootLayout({

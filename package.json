@@ -10,6 +10,7 @@
     "dev": "next dev --turbopack",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
+    "prebuild": "pnpm db:push && pnpm db:seed",
     "prepare": "simple-git-hooks",
     "start": "next start",
     "update": "taze major -wi"
