@@ -30,7 +30,7 @@ export function SideNav() {
               <div className="hidden md:block">Sign Out</div>
             </button>
           </form>
-          <DarkModeToggle className="h-12 rounded-md bg-secondary p-3 hover:bg-primary/20 hover:text-primary/80 md:py-2" />
+          <DarkModeToggle className="hidden h-12 rounded-md bg-secondary p-3 hover:bg-primary/20 hover:text-primary/80 md:inline-flex md:py-2" />
           <ThemeDialog />
         </div>
       </div>

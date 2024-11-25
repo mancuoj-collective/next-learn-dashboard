@@ -57,7 +57,7 @@ export function Chart({ revenue }: { revenue: { month: string, revenue: number }
           </div>
           <NumberFlow
             willChange
-            className={cn(lusitana.className, 'text-lg tracking-wider')}
+            className={cn(lusitana.className, 'text-base tracking-wider md:text-lg')}
             value={selectedMonth !== null ? revenue[selectedMonth].revenue : totalRevenue}
             locales="en-US"
             format={{ style: 'currency', currency: 'USD' }}

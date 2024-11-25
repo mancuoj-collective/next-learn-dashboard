@@ -40,7 +40,7 @@ function Login() {
           'rounded-lg px-6 py-3 text-sm md:text-base',
         )}
       >
-        <span>Log in</span>
+        Log in
         <span className="i-mingcute-arrow-right-line size-5" />
       </Link>
     </div>

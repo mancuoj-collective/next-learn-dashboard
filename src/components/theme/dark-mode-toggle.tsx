@@ -14,7 +14,7 @@ export function DarkModeToggle({ className }: { className?: string }) {
       title="toggle dark mode"
       type="button"
       onClick={toggleDark}
-      className={cn('flex items-center justify-center', className)}
+      className={cn('inline-flex items-center justify-center', className)}
     >
       <div
         role="img"
