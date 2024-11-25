@@ -1,7 +1,5 @@
 'use client'
 
-import * as React from 'react'
-
 import { useDark } from '@/hooks/use-dark'
 import { cn } from '@/lib/utils'
 
