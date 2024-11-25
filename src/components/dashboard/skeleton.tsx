@@ -20,13 +20,13 @@ export function DashboardSkeleton() {
 export function CardSkeleton() {
   return (
     <div
-      className={`${shimmer} relative overflow-hidden rounded-xl bg-secondary p-3 shadow-sm`}
+      className={`${shimmer} relative overflow-hidden rounded-lg bg-secondary p-3 shadow-sm`}
     >
       <div className="flex p-4">
         <div className="size-5 rounded-md bg-muted-foreground" />
         <div className="ml-2 h-5 w-16 rounded-md bg-muted-foreground text-sm font-medium" />
       </div>
-      <div className="flex items-center justify-center truncate rounded-xl bg-background px-4 py-8">
+      <div className="flex items-center justify-center truncate rounded-lg bg-background px-4 py-8">
         <div className="h-7 w-20 rounded-md bg-muted-foreground" />
       </div>
     </div>
@@ -48,7 +48,7 @@ export function RevenueChartSkeleton() {
   return (
     <div className={cn('relative w-full overflow-hidden md:col-span-4', shimmer)}>
       <div className="mb-4 h-8 w-36 rounded-md bg-muted-foreground" />
-      <div className="rounded-xl bg-secondary p-4">
+      <div className="rounded-lg bg-secondary p-4">
         <div className="mt-0 grid h-[406px] grid-cols-12 items-end gap-2 rounded-md bg-background p-4 md:grid-cols-13 md:gap-4" />
         <div className="flex items-center pb-2 pt-6">
           <div className="size-5 rounded-full bg-muted-foreground" />
@@ -78,7 +78,7 @@ export function LatestInvoicesSkeleton() {
   return (
     <div className={cn('relative flex w-full flex-col overflow-hidden md:col-span-4', shimmer)}>
       <div className="mb-4 h-8 w-36 rounded-md bg-muted-foreground" />
-      <div className="flex grow flex-col justify-between rounded-xl bg-secondary p-4">
+      <div className="flex grow flex-col justify-between rounded-lg bg-secondary p-4">
         <div className="grow divide-y rounded-lg bg-background px-6">
           <InvoiceSkeleton />
           <InvoiceSkeleton />

@@ -1,3 +1,4 @@
+// Copy from https://github.com/shadcn-ui/ui/blob/main/apps/www/registry/registry-base-colors.ts
 export const themes = [
   {
     name: 'zinc',

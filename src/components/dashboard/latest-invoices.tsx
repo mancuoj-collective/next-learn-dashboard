@@ -13,7 +13,7 @@ export async function LatestInvoices() {
       <h2 className={cn('mb-4 text-xl md:text-2xl', lusitana.className)}>
         Latest Invoices
       </h2>
-      <div className="flex grow flex-col justify-between rounded-xl bg-secondary p-4">
+      <div className="flex grow flex-col justify-between rounded-lg bg-secondary p-4">
         <div className="grow divide-y rounded-lg bg-background px-6">
           {invoices.map(invoice => (
             <div key={invoice.id} className="flex items-center justify-between py-4">

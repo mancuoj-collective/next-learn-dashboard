@@ -22,12 +22,12 @@ export function Card({ title, value, type }: CardProps) {
   const Icon = iconMap[type]
 
   return (
-    <div className="rounded-xl bg-secondary p-3 shadow-sm">
+    <div className="rounded-lg bg-secondary p-3 shadow-sm">
       <div className="flex p-4">
         <Icon className="size-5 text-muted-foreground" />
         <h3 className="ml-2 text-sm">{title}</h3>
       </div>
-      <p className={cn('truncate rounded-xl bg-background px-4 py-8 text-center text-2xl', lusitana.className)}>
+      <p className={cn('truncate rounded-lg bg-background px-4 py-8 text-center text-2xl', lusitana.className)}>
         {value}
       </p>
     </div>

@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { useConfig } from '@/hooks/use-config'
 import { useDark } from '@/hooks/use-dark'
+import { useIsMobile } from '@/hooks/use-is-mobile'
 import { cn } from '@/lib/utils'
 
 import type { Theme } from './themes'
@@ -17,6 +18,7 @@ function getActiveColor(theme: Theme['name'], isDark = false) {
 export function ThemeCustomizer() {
   const [config, setConfig] = useConfig()
   const { isDark, toggleDark } = useDark()
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     document.documentElement.classList.remove(
@@ -40,7 +42,7 @@ export function ThemeCustomizer() {
               <Button
                 variant="outline"
                 key={theme}
-                size="sm"
+                size={isMobile ? 'sm' : 'default'}
                 onClick={() => setConfig({ ...config, theme })}
                 className={cn('justify-start', isActive && 'border-2 border-primary')}
               >
@@ -50,7 +52,7 @@ export function ThemeCustomizer() {
                 >
                   {isActive && <span className="i-mingcute-check-line size-3.5 text-white" />}
                 </span>
-                <span className="text-xs capitalize">{theme}</span>
+                <span className="capitalize">{theme}</span>
               </Button>
             )
           })}
@@ -65,7 +67,7 @@ export function ThemeCustomizer() {
               <Button
                 key={radius}
                 variant="outline"
-                size="sm"
+                size={isMobile ? 'sm' : 'default'}
                 onClick={() => setConfig({ ...config, radius })}
                 className={cn(isActive && 'border-2 border-primary')}
               >
@@ -80,16 +82,16 @@ export function ThemeCustomizer() {
         <div className="grid grid-cols-3 gap-1 md:gap-2.5">
           <Button
             variant="outline"
-            size="sm"
+            size={isMobile ? 'sm' : 'default'}
             onClick={() => { isDark && toggleDark() }}
             className={cn('justify-start', !isDark && 'border-2 border-primary')}
           >
-            <span className="i-mingcute-sun-line flex size-5 shrink-0 items-center justify-center" />
+            <span className="i-mingcute-sun-line flex size-4 shrink-0 items-center justify-center" />
             Light
           </Button>
           <Button
             variant="outline"
-            size="sm"
+            size={isMobile ? 'sm' : 'default'}
             onClick={() => { !isDark && toggleDark() }}
             className={cn('justify-start', isDark && 'border-2 border-primary')}
           >

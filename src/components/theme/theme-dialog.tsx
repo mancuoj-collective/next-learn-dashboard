@@ -25,7 +25,7 @@ export function ThemeDialog() {
         </button>
       </DialogTrigger>
       <DialogContent
-        className={cn('w-96 md:w-[444px]', `theme-${config.theme}`, { dark: isDark })}
+        className={cn('w-96 md:w-[460px]', `theme-${config.theme}`, { dark: isDark })}
         style={{ '--radius': `${config.radius}rem` } as React.CSSProperties}
       >
         <DialogTitle>

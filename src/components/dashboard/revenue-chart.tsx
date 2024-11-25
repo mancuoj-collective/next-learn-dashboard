@@ -13,7 +13,7 @@ export async function RevenueChart() {
       <h2 className={cn('mb-4 text-xl md:text-2xl', lusitana.className)}>
         Recent Revenue
       </h2>
-      <div className="rounded-xl bg-secondary p-4">
+      <div className="rounded-lg bg-secondary p-4">
         <div className="mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-background p-4 md:grid-cols-13 md:gap-4">
           {/* y-axis */}
           <div
