@@ -1,20 +1,14 @@
 import { Suspense } from 'react'
 
-import {
-  CardGroup,
-  CardGroupSkeleton,
-  LatestInvoices,
-  LatestInvoicesSkeleton,
-  RevenueChart,
-  RevenueChartSkeleton,
-} from '@/components/dashboard'
+import { CardGroup, LatestInvoices, RevenueChart } from '@/components/dashboard'
 import { lusitana } from '@/components/fonts'
+import { CardGroupSkeleton, LatestInvoicesSkeleton, RevenueChartSkeleton } from '@/components/skeletons'
 import { cn } from '@/lib/utils'
 
 export default function Page() {
   return (
     <main>
-      <h1 className={cn('mb-4 text-2xl md:text-3xl', lusitana.className)}>Dashboard</h1>
+      <h1 className={cn('mb-4 pl-1 text-2xl md:text-3xl', lusitana.className)}>Dashboard</h1>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <Suspense fallback={<CardGroupSkeleton />}>
           <CardGroup />

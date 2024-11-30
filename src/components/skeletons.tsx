@@ -22,11 +22,11 @@ export function CardSkeleton() {
     <div
       className={`${shimmer} relative overflow-hidden rounded-lg bg-secondary p-3 shadow-sm`}
     >
-      <div className="flex p-4">
+      <div className="flex px-2 py-4">
         <div className="size-5 rounded-md bg-muted-foreground" />
         <div className="ml-2 h-5 w-16 rounded-md bg-muted-foreground text-sm font-medium" />
       </div>
-      <div className="flex items-center justify-center truncate rounded-lg bg-background px-4 py-8">
+      <div className="flex items-center justify-center rounded-lg bg-background px-4 py-8">
         <div className="h-7 w-20 rounded-md bg-muted-foreground" />
       </div>
     </div>

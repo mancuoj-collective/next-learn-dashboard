@@ -10,7 +10,7 @@ export async function LatestInvoices() {
 
   return (
     <div className="flex w-full flex-col md:col-span-4">
-      <h2 className={cn('mb-4 text-xl md:text-2xl', lusitana.className)}>
+      <h2 className={cn('mb-4 pl-1 text-xl md:text-2xl', lusitana.className)}>
         Latest Invoices
       </h2>
       <div className="flex grow flex-col justify-between rounded-lg bg-secondary p-4">

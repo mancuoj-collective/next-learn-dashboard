@@ -20,9 +20,9 @@ export function StatusBadge({ status }: { status: InsertInvoice['status'] }) {
   const { label, className, icon: Icon } = statusConfig[status]
 
   return (
-    <span className={cn('inline-flex items-center rounded-full px-2 py-1 text-xs', className)}>
+    <span className={cn('inline-flex items-center rounded-full px-2.5 py-1 text-xs', className)}>
       {label}
-      <Icon className="ml-1 size-4" />
+      <Icon className="ml-1 size-3.5" />
     </span>
   )
 }

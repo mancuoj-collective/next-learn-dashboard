@@ -8,6 +8,11 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+export function delay() {
+  const random = Math.floor(Math.random() * 2000) + 1000
+  return new Promise(resolve => setTimeout(resolve, random))
+}
+
 export const formatCurrency = (amount: number) => {
   return (amount / 100).toLocaleString('en-US', {
     style: 'currency',

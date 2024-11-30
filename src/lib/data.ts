@@ -1,13 +1,14 @@
 import { desc, eq, like, or, sql } from 'drizzle-orm'
 
+import { siteConfig } from '@/config/site'
 import { db } from '@/db'
 import { customers, invoices, revenue } from '@/db/schema'
 
-import { formatCurrency, lower, lowerText } from './utils'
+import { delay, formatCurrency, lower, lowerText } from './utils'
 
 export async function fetchRevenue() {
   try {
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    await delay() // TODO: Remove this after testing
     const revenueData = await db.select().from(revenue)
     return revenueData
   }
@@ -19,7 +20,7 @@ export async function fetchRevenue() {
 
 export async function fetchLatestInvoice() {
   try {
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    await delay() // TODO: Remove this after testing
     const invoicesData = await db
       .select({
         id: invoices.id,
@@ -46,6 +47,7 @@ export async function fetchLatestInvoice() {
 
 export async function fetchCardData() {
   try {
+    await delay() // TODO: Remove this after testing
     const [invoiceCount, customerCount, invoiceStats] = await Promise.all([
       db.select({
         count: sql<number>`count(*)`.mapWith(Number),
@@ -74,10 +76,9 @@ export async function fetchCardData() {
   }
 }
 
-const ITEMS_PER_PAGE = 6
-
 export async function fetchInvoicePages(query: string) {
   try {
+    await delay() // TODO: Remove this after testing
     const count = await db
       .select({ count: sql<number>`count(*)`.mapWith(Number) })
       .from(invoices)
@@ -91,7 +92,7 @@ export async function fetchInvoicePages(query: string) {
           like(lower(invoices.status), `%${query}%`),
         ),
       )
-    const totalPages = Math.ceil(count[0].count / ITEMS_PER_PAGE)
+    const totalPages = Math.ceil(count[0].count / siteConfig.itemsPerPage)
     return totalPages
   }
   catch (error) {
@@ -101,8 +102,9 @@ export async function fetchInvoicePages(query: string) {
 }
 
 export async function fetchFilteredInvoices(query: string, currentPage: number) {
-  const offset = (currentPage - 1) * ITEMS_PER_PAGE
+  const offset = (currentPage - 1) * siteConfig.itemsPerPage
   try {
+    await delay() // TODO: Remove this after testing
     const invoicesData = await db
       .select({
         id: invoices.id,
@@ -125,7 +127,7 @@ export async function fetchFilteredInvoices(query: string, currentPage: number) 
         ),
       )
       .orderBy(desc(invoices.date))
-      .limit(ITEMS_PER_PAGE)
+      .limit(siteConfig.itemsPerPage)
       .offset(offset)
     return invoicesData
   }
@@ -137,6 +139,7 @@ export async function fetchFilteredInvoices(query: string, currentPage: number) 
 
 export async function fetchInvoiceById(id: number) {
   try {
+    await delay() // TODO: Remove this after testing
     const invoice = await db.select().from(invoices).where(eq(invoices.id, id))
     return invoice[0]
   }

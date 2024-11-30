@@ -15,7 +15,40 @@ export async function InvoicesTable({ query, currentPage }: {
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
-        <div className="rounded-lg bg-secondary p-2 md:pt-0">
+        <div className="rounded-lg bg-secondary p-4 md:pt-0">
+          <div className="md:hidden">
+            {invoices.map(invoice => (
+              <div key={invoice.id} className="mb-3 w-full rounded-md bg-background p-4">
+                <div className="flex items-center justify-between border-b pb-3">
+                  <div>
+                    <div className="mb-2 flex items-center">
+                      <Image
+                        src={invoice.imageUrl}
+                        alt={`${invoice.name}'s profile picture`}
+                        width={28}
+                        height={28}
+                        className="mr-2 rounded-full"
+                      />
+                      <p className="text-sm font-medium">{invoice.name}</p>
+                    </div>
+                    <p className="text-sm text-muted-foreground">{invoice.email}</p>
+                  </div>
+                  <StatusBadge status={invoice.status} />
+                </div>
+                <div className="flex w-full items-center justify-between pt-3">
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium">{formatCurrency(invoice.amount)}</p>
+                    <p className="text-xs text-muted-foreground">{formatDate(invoice.date)}</p>
+                  </div>
+                  <div className="flex justify-end gap-2">
+                    <UpdateInvoiceButton />
+                    <DeleteInvoiceButton />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
           <table className="hidden min-w-full md:table">
             <thead className="rounded-lg text-left text-sm font-normal">
               <tr>
@@ -34,7 +67,7 @@ export async function InvoicesTable({ query, currentPage }: {
                 <tr
                   key={invoice.id}
                   className={cn(
-                    'w-full border-b py-3 text-sm',
+                    'w-full border-b text-sm',
                     'last-of-type:border-none',
                     '[&:first-child>td:first-child]:rounded-tl-lg',
                     '[&:first-child>td:last-child]:rounded-tr-lg',
