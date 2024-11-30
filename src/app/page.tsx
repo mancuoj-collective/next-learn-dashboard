@@ -37,7 +37,7 @@ function Login() {
         className={cn(
           'flex items-center gap-4 self-start',
           'bg-primary text-white transition-colors hover:bg-primary/80',
-          'rounded-lg px-6 py-3 text-sm md:text-base',
+          'rounded-lg px-6 py-3 text-sm font-medium md:text-base',
         )}
       >
         Log in

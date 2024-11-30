@@ -30,7 +30,7 @@ export async function LatestInvoices() {
                   <p className="hidden truncate text-sm text-muted-foreground md:block">{invoice.email}</p>
                 </div>
               </div>
-              <p className={cn('truncate text-sm md:text-base', lusitana.className)}>
+              <p className={cn('truncate text-sm font-medium md:text-base', lusitana.className)}>
                 {invoice.amount}
               </p>
             </div>

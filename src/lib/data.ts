@@ -1,9 +1,9 @@
-import { desc, eq, sql } from 'drizzle-orm'
+import { desc, eq, like, or, sql } from 'drizzle-orm'
 
 import { db } from '@/db'
 import { customers, invoices, revenue } from '@/db/schema'
 
-import { formatCurrency } from './utils'
+import { formatCurrency, lower, lowerText } from './utils'
 
 export async function fetchRevenue() {
   try {
@@ -71,5 +71,77 @@ export async function fetchCardData() {
   catch (error) {
     console.error('Database Error:', error)
     throw new Error('Failed to fetch card data.')
+  }
+}
+
+const ITEMS_PER_PAGE = 6
+
+export async function fetchInvoicePages(query: string) {
+  try {
+    const count = await db
+      .select({ count: sql<number>`count(*)`.mapWith(Number) })
+      .from(invoices)
+      .innerJoin(customers, eq(invoices.customer_id, customers.id))
+      .where(
+        or(
+          like(lower(customers.name), `%${query}%`),
+          like(lower(customers.email), `%${query}%`),
+          like(lowerText(invoices.amount), `%${query}%`),
+          like(lowerText(invoices.date), `%${query}%`),
+          like(lower(invoices.status), `%${query}%`),
+        ),
+      )
+    const totalPages = Math.ceil(count[0].count / ITEMS_PER_PAGE)
+    return totalPages
+  }
+  catch (error) {
+    console.error('Database Error:', error)
+    throw new Error('Failed to fetch total number of invoices.')
+  }
+}
+
+export async function fetchFilteredInvoices(query: string, currentPage: number) {
+  const offset = (currentPage - 1) * ITEMS_PER_PAGE
+  try {
+    const invoicesData = await db
+      .select({
+        id: invoices.id,
+        amount: invoices.amount,
+        date: invoices.date,
+        status: invoices.status,
+        name: customers.name,
+        email: customers.email,
+        imageUrl: customers.image_url,
+      })
+      .from(invoices)
+      .innerJoin(customers, eq(invoices.customer_id, customers.id))
+      .where(
+        or(
+          like(lower(customers.name), `%${query}%`),
+          like(lower(customers.email), `%${query}%`),
+          like(lowerText(invoices.amount), `%${query}%`),
+          like(lowerText(invoices.date), `%${query}%`),
+          like(lower(invoices.status), `%${query}%`),
+        ),
+      )
+      .orderBy(desc(invoices.date))
+      .limit(ITEMS_PER_PAGE)
+      .offset(offset)
+    return invoicesData
+  }
+  catch (error) {
+    console.error('Database Error:', error)
+    throw new Error('Failed to fetch invoices.')
+  }
+}
+
+export async function fetchInvoiceById(id: number) {
+  try {
+    const invoice = await db.select().from(invoices).where(eq(invoices.id, id))
+    return invoice[0]
+  }
+  catch (error) {
+    console.error('Database Error:', error)
+    throw new Error('Failed to fetch invoice.')
   }
 }
