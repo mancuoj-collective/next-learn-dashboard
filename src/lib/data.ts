@@ -7,7 +7,7 @@ import { formatCurrency } from './utils'
 
 export async function fetchRevenue() {
   try {
-    // await new Promise(resolve => setTimeout(resolve, 2000))
+    await new Promise(resolve => setTimeout(resolve, 2000))
     const revenueData = await db.select().from(revenue)
     return revenueData
   }
@@ -19,6 +19,7 @@ export async function fetchRevenue() {
 
 export async function fetchLatestInvoice() {
   try {
+    await new Promise(resolve => setTimeout(resolve, 1500))
     const invoicesData = await db
       .select({
         id: invoices.id,

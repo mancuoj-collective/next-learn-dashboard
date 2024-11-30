@@ -49,7 +49,9 @@ export function RevenueChartSkeleton() {
     <div className={cn('relative w-full overflow-hidden md:col-span-4', shimmer)}>
       <div className="mb-4 h-8 w-36 rounded-md bg-muted-foreground" />
       <div className="rounded-lg bg-secondary p-4">
-        <div className="mt-0 grid h-[406px] grid-cols-12 items-end gap-2 rounded-md bg-background p-4 md:grid-cols-13 md:gap-4" />
+        <div className="rounded-md bg-background p-4">
+          <div className="aspect-square min-h-[260px] w-full md:aspect-video md:h-[360px]" />
+        </div>
         <div className="flex items-center pb-2 pt-6">
           <div className="size-5 rounded-full bg-muted-foreground" />
           <div className="ml-2 h-5 w-20 rounded-md bg-muted-foreground" />

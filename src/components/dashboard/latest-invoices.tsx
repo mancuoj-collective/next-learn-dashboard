@@ -36,7 +36,7 @@ export async function LatestInvoices() {
             </div>
           ))}
         </div>
-        <div className="flex items-center justify-end pb-2 pt-6">
+        <div className="flex items-center pb-2 pt-6">
           <div className="i-mingcute-refresh-2-line size-5 bg-muted-foreground" />
           <h3 className="ml-2 text-sm text-muted-foreground">Updated just now</h3>
         </div>

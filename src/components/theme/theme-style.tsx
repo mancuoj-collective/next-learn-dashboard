@@ -19,6 +19,6 @@ export function generateThemeCSS() {
 
 export function ThemeStyle() {
   return (
-    <style>{generateThemeCSS()}</style>
+    <style dangerouslySetInnerHTML={{ __html: generateThemeCSS() }} />
   )
 }
