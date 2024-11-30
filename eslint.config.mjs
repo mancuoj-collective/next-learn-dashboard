@@ -16,6 +16,7 @@ export default defineConfig(
       'unicorn/expiring-todo-comments': 'off',
       'tailwindcss/no-custom-classname': 'off',
       'react-refresh/only-export-components': 'off',
+      '@eslint-react/no-array-index-key': 'off',
     },
   },
 )

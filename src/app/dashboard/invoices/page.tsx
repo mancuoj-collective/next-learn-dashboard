@@ -3,6 +3,7 @@ import { Suspense } from 'react'
 
 import { lusitana } from '@/components/fonts'
 import { InvoicesTable, Pagination } from '@/components/invoices'
+import { InvoicesTableSkeleton } from '@/components/skeletons'
 import { fetchInvoicePages } from '@/lib/data'
 import { cn } from '@/lib/utils'
 
@@ -24,7 +25,7 @@ export default async function Page(props: {
   return (
     <main>
       <h1 className={cn('mb-4 pl-1 text-2xl md:text-3xl', lusitana.className)}>Invoices</h1>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
         <InvoicesTable query={query} currentPage={currentPage} />
       </Suspense>
       <div className="mt-5 flex w-full justify-center">

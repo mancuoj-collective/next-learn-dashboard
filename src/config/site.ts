@@ -4,5 +4,5 @@ export const siteConfig = {
   url: 'https://next-learn-dashboard.mancuoj.me',
   umamiUrl: 'https://a.mancuoj.me/script.js',
   umamiId: 'df24efa9-53b2-486c-8bff-03a00872cb1b',
-  itemsPerPage: 3,
+  itemsPerPage: 5,
 }

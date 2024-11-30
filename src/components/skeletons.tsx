@@ -1,3 +1,4 @@
+import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 
 const shimmer = 'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-muted-foreground/50 before:to-transparent'
@@ -94,5 +95,107 @@ export function LatestInvoicesSkeleton() {
         </div>
       </div>
     </div>
+  )
+}
+
+export function InvoicesTableSkeleton() {
+  return (
+    <div className="mt-6 flow-root">
+      <div className="inline-block min-w-full align-middle">
+        <div className="rounded-lg bg-secondary p-4 md:pt-0">
+          <div className="md:hidden">
+            {Array.from({ length: siteConfig.itemsPerPage }).map((_, i) => (
+              <InvoicesMobileRowSkeleton key={i} />
+            ))}
+          </div>
+          <table className="hidden min-w-full md:table">
+            <thead className="rounded-lg text-left text-sm font-normal">
+              <tr>
+                <th scope="col" className="py-5 pl-6 pr-4 text-left font-medium">Customer</th>
+                <th scope="col" className="px-3 py-5 font-medium">Email</th>
+                <th scope="col" className="px-3 py-5 font-medium">Amount</th>
+                <th scope="col" className="px-3 py-5 font-medium">Date</th>
+                <th scope="col" className="px-3 py-5 font-medium">Status</th>
+                <th scope="col" className="relative py-3 pl-6 pr-3">
+                  <span className="sr-only">Edit</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-background">
+              {Array.from({ length: siteConfig.itemsPerPage }).map((_, i) => (
+                <InvoicesTableSkeletonRow key={i} />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function InvoicesMobileRowSkeleton() {
+  return (
+    <div className="mb-3 w-full rounded-md bg-background p-4">
+      <div className="flex items-center justify-between border-b pb-3">
+        <div>
+          <div className="mb-2 flex items-center">
+            <div className="mr-2 size-[28px] rounded-full bg-muted-foreground" />
+            <div className="h-5 w-20 rounded bg-muted-foreground" />
+          </div>
+          <div className="h-5 w-24 rounded bg-muted-foreground" />
+        </div>
+        <div className="h-5 w-12 rounded bg-muted-foreground" />
+      </div>
+      <div className="flex w-full items-center justify-between pt-3">
+        <div className="space-y-1">
+          <div className="h-5 w-12 rounded bg-muted-foreground" />
+          <div className="h-4 w-20 rounded bg-muted-foreground" />
+        </div>
+        <div className="flex justify-end gap-2">
+          <div className="size-8 rounded bg-muted-foreground" />
+          <div className="size-8 rounded bg-muted-foreground" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function InvoicesTableSkeletonRow() {
+  return (
+    <tr
+      className={cn(
+        'w-full border-b text-sm',
+        'last-of-type:border-none',
+        '[&:first-child>td:first-child]:rounded-tl-lg',
+        '[&:first-child>td:last-child]:rounded-tr-lg',
+        '[&:last-child>td:first-child]:rounded-bl-lg',
+        '[&:last-child>td:last-child]:rounded-br-lg',
+      )}
+    >
+      <td className="whitespace-nowrap py-3 pl-6 pr-3">
+        <div className="flex items-center gap-3">
+          <div className="size-[28px] rounded-full bg-muted-foreground" />
+          <div className="h-6 w-24 rounded bg-muted-foreground" />
+        </div>
+      </td>
+      <td className="whitespace-nowrap p-3">
+        <div className="h-6 w-32 rounded bg-muted-foreground" />
+      </td>
+      <td className="whitespace-nowrap p-3">
+        <div className="h-6 w-16 rounded bg-muted-foreground" />
+      </td>
+      <td className="whitespace-nowrap p-3">
+        <div className="h-6 w-16 rounded bg-muted-foreground" />
+      </td>
+      <td className="whitespace-nowrap p-3">
+        <div className="h-6 w-16 rounded bg-muted-foreground" />
+      </td>
+      <td className="whitespace-nowrap py-3 pl-6 pr-3">
+        <div className="flex justify-end gap-2">
+          <div className="size-8 rounded bg-muted-foreground" />
+          <div className="size-8 rounded bg-muted-foreground" />
+        </div>
+      </td>
+    </tr>
   )
 }
