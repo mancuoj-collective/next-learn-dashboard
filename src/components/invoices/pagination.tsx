@@ -1,19 +1,14 @@
-'use client'
-
 import Link from 'next/link'
-import { usePathname, useSearchParams } from 'next/navigation'
 
 import { cn, generatePagination } from '@/lib/utils'
 
-export function Pagination({ totalPages }: { totalPages: number }) {
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-  const currentPage = Number(searchParams.get('page')) || 1
+import { searchParamsCache, serialize } from './search-params'
 
-  const createPageURL = (pageNumber: number | string) => {
-    const params = new URLSearchParams(searchParams)
-    params.set('page', pageNumber.toString())
-    return `${pathname}?${params.toString()}`
+export function InvoicesPagination({ totalPages }: { totalPages: number }) {
+  const currentPage = searchParamsCache.get('page')
+
+  const createPageURL = (pageNumber: number) => {
+    return serialize('/dashboard/invoices', { page: pageNumber })
   }
 
   const allPages = generatePagination(currentPage, totalPages)
@@ -31,7 +26,7 @@ export function Pagination({ totalPages }: { totalPages: number }) {
             <PaginationNumber
               key={`${page}-${index}`}
               page={page}
-              href={createPageURL(page)}
+              href={typeof page === 'number' ? createPageURL(page) : ''}
               isActive={currentPage === page}
               position={position}
             />
