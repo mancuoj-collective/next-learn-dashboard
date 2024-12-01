@@ -3,7 +3,10 @@ import { cn } from '@/lib/utils'
 
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table'
 
-const shimmer = 'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-muted-foreground/50 before:to-transparent'
+const shimmer = cn(
+  'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite]',
+  'before:bg-gradient-to-r before:from-transparent before:via-muted-foreground/50 before:to-transparent',
+)
 
 export function DashboardPageSkeleton() {
   return (
@@ -23,7 +26,15 @@ export function DashboardPageSkeleton() {
 export function InvoicesPageSkeleton() {
   return (
     <>
-      <div className={cn('relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-muted-foreground/20 md:h-9', shimmer)} />
+      <div className={cn('relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-muted-foreground/20 md:mb-8 md:h-9', shimmer)} />
+      <div className="flex items-center justify-between gap-2.5">
+        <div className="relative flex-1 overflow-hidden">
+          <div className={cn('h-10 rounded-md bg-muted-foreground/20', shimmer)} />
+        </div>
+        <div className="relative overflow-hidden">
+          <div className={cn('h-10 w-32 rounded-md bg-muted-foreground/20', shimmer)} />
+        </div>
+      </div>
       <InvoicesTableSkeleton />
       <div className="mt-5 flex w-full justify-center gap-2 md:gap-4">
         <div className={cn('relative size-10 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />

@@ -1,15 +1,14 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 
 import { cn, generatePagination } from '@/lib/utils'
 
-import { searchParamsCache, serialize } from './search-params'
+import { searchParamsCache, serialize } from '../search-params'
 
 export function InvoicesPagination({ totalPages }: { totalPages: number }) {
-  const currentPage = searchParamsCache.get('page')
+  const { page: currentPage, query } = searchParamsCache.all()
 
   const createPageURL = (pageNumber: number) => {
-    return serialize('/dashboard/invoices', { page: pageNumber })
+    return serialize('/dashboard/invoices', { page: pageNumber, query })
   }
 
   const allPages = generatePagination(currentPage, totalPages)
@@ -81,7 +80,6 @@ function PaginationArrow({ href, direction, isDisabled }: {
   direction: 'left' | 'right'
   isDisabled?: boolean
 }) {
-  const Icon = direction === 'left' ? ChevronLeft : ChevronRight
   const className = cn(
     'flex size-10 items-center justify-center rounded-md border',
     {
@@ -89,12 +87,19 @@ function PaginationArrow({ href, direction, isDisabled }: {
       'hover:bg-secondary': !isDisabled,
     },
   )
+  const icon = direction === 'left'
+    ? (
+        <span className="i-mingcute-left-line size-4" />
+      )
+    : (
+        <span className="i-mingcute-right-line size-4" />
+      )
 
   return isDisabled
     ? (
-        <div className={className}><Icon /></div>
+        <div className={className}>{icon}</div>
       )
     : (
-        <Link href={href} className={className}><Icon /></Link>
+        <Link href={href} className={className}>{icon}</Link>
       )
 }
