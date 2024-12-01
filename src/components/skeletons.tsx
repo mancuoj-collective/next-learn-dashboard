@@ -23,6 +23,9 @@ export function InvoicesPageSkeleton() {
     <>
       <div className={cn('relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />
       <InvoicesTableSkeleton />
+      <div className="mt-5 flex w-full justify-center">
+        <div className={cn('relative h-10 w-32 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />
+      </div>
     </>
   )
 }
