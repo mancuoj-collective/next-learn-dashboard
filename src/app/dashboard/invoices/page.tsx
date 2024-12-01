@@ -29,7 +29,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Sea
         <InvoicesTable query={query} currentPage={currentPage} />
       </Suspense>
       <div className="mt-5 flex w-full justify-center">
-        <InvoicesPagination totalPages={totalPages} />
+        {totalPages > 0 && <InvoicesPagination totalPages={totalPages} />}
       </div>
     </main>
   )
