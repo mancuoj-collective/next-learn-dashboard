@@ -41,6 +41,9 @@ importers:
       drizzle-zod:
         specifier: ^0.5.1
         version: 0.5.1(drizzle-orm@0.36.4(@libsql/client@0.14.0)(@types/react@18.3.12)(react@19.0.0-rc-66855b96-20241106))(zod@3.23.8)
+      framer-motion:
+        specifier: ^11.12.0
+        version: 11.12.0(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
       jotai:
         specifier: ^2.10.3
         version: 2.10.3(@types/react@18.3.12)(react@19.0.0-rc-66855b96-20241106)
@@ -80,9 +83,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.15)
-      use-debounce:
-        specifier: ^10.0.4
-        version: 10.0.4(react@19.0.0-rc-66855b96-20241106)
+      usehooks-ts:
+        specifier: ^3.1.0
+        version: 3.1.0(react@19.0.0-rc-66855b96-20241106)
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -2273,6 +2276,20 @@ packages:
     resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
     engines: {node: '>=12.20.0'}
 
+  framer-motion@11.12.0:
+    resolution: {integrity: sha512-gZaZeqFM6pX9kMVti60hYAa75jGpSsGYWAHbBfIkuHN7DkVHVkxSxeNYnrGmHuM0zPkWTzQx10ZT+fDjn7N4SA==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
 
@@ -2611,6 +2628,9 @@ packages:
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
+
+  lodash.debounce@4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
 
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
@@ -3433,12 +3453,6 @@ packages:
       '@types/react':
         optional: true
 
-  use-debounce@10.0.4:
-    resolution: {integrity: sha512-6Cf7Yr7Wk7Kdv77nnJMf6de4HuDE4dTxKij+RqE9rufDsI6zsbjyAxcH5y2ueJCQAnfgKbzXbZHYlkFwmBlWkw==}
-    engines: {node: '>= 16.0.0'}
-    peerDependencies:
-      react: '*'
-
   use-sidecar@1.1.2:
     resolution: {integrity: sha512-epTbsLuzZ7lPClpz2TyryBfztm7m+28DlEv2ZCQ3MDr5ssiwyOwGH/e5F9CkfWjJ1t4clvI58yF822/GUkjjhw==}
     engines: {node: '>=10'}
@@ -3448,6 +3462,12 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
+
+  usehooks-ts@3.1.0:
+    resolution: {integrity: sha512-bBIa7yUyPhE1BCc0GmR96VU/15l/9gP1Ch5mYdLcFBaFGQsdmXkvjV0TtOqW1yUd6VjIwDunm+flSciCQXujiw==}
+    engines: {node: '>=16.15.0'}
+    peerDependencies:
+      react: ^16.8.0  || ^17 || ^18
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -5655,6 +5675,13 @@ snapshots:
     dependencies:
       fetch-blob: 3.2.0
 
+  framer-motion@11.12.0(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106):
+    dependencies:
+      tslib: 2.8.1
+    optionalDependencies:
+      react: 19.0.0-rc-66855b96-20241106
+      react-dom: 19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106)
+
   fs.realpath@1.0.0: {}
 
   fsevents@2.3.3:
@@ -5969,6 +5996,8 @@ snapshots:
   locate-path@6.0.0:
     dependencies:
       p-locate: 5.0.0
+
+  lodash.debounce@4.0.8: {}
 
   lodash.merge@4.6.2: {}
 
@@ -6788,10 +6817,6 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.12
 
-  use-debounce@10.0.4(react@19.0.0-rc-66855b96-20241106):
-    dependencies:
-      react: 19.0.0-rc-66855b96-20241106
-
   use-sidecar@1.1.2(@types/react@18.3.12)(react@19.0.0-rc-66855b96-20241106):
     dependencies:
       detect-node-es: 1.1.0
@@ -6799,6 +6824,11 @@ snapshots:
       tslib: 2.8.1
     optionalDependencies:
       '@types/react': 18.3.12
+
+  usehooks-ts@3.1.0(react@19.0.0-rc-66855b96-20241106):
+    dependencies:
+      lodash.debounce: 4.0.8
+      react: 19.0.0-rc-66855b96-20241106
 
   util-deprecate@1.0.2: {}
 

@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter } from 'next/navigation'
 import { useQueryState } from 'nuqs'
-import { useDebouncedCallback } from 'use-debounce'
+import { useDebounceCallback } from 'usehooks-ts'
 
 import { cn } from '@/lib/utils'
 
@@ -13,7 +13,7 @@ export function Search({ placeholder }: { placeholder: string }) {
   const [query] = useQueryState('query')
   const { replace } = useRouter()
 
-  const handleSearch = useDebouncedCallback((term: string) => {
+  const handleSearch = useDebounceCallback((term: string) => {
     replace(serialize(pathname, { page: 1, query: term || null }))
   }, 300)
 

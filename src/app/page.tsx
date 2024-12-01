@@ -36,7 +36,7 @@ function Login() {
         href="/dashboard"
         className={cn(
           'flex items-center gap-4 self-start',
-          'bg-primary text-white transition-colors hover:bg-primary/80',
+          'bg-primary text-primary-foreground transition-colors hover:bg-primary/80',
           'rounded-lg px-6 py-3 text-sm font-medium md:text-base',
         )}
       >
