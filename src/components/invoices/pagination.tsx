@@ -1,3 +1,4 @@
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 
 import { cn, generatePagination } from '@/lib/utils'
@@ -14,7 +15,13 @@ export function InvoicesPagination({ totalPages }: { totalPages: number }) {
   const allPages = generatePagination(currentPage, totalPages)
 
   return (
-    <div className="inline-flex">
+    <div className="inline-flex items-center gap-2 md:gap-4">
+      <PaginationArrow
+        href={createPageURL(currentPage - 1)}
+        direction="left"
+        isDisabled={currentPage === 1}
+      />
+
       <div className="flex -space-x-px">
         {allPages.map((page, index) => {
           let position: 'first' | 'last' | 'middle' | 'single' | undefined
@@ -33,6 +40,12 @@ export function InvoicesPagination({ totalPages }: { totalPages: number }) {
           )
         })}
       </div>
+
+      <PaginationArrow
+        href={createPageURL(currentPage + 1)}
+        direction="right"
+        isDisabled={currentPage === totalPages}
+      />
     </div>
   )
 }
@@ -60,5 +73,28 @@ function PaginationNumber({ page, href, isActive, position }: {
       )
     : (
         <Link href={href} className={className}>{page}</Link>
+      )
+}
+
+function PaginationArrow({ href, direction, isDisabled }: {
+  href: string
+  direction: 'left' | 'right'
+  isDisabled?: boolean
+}) {
+  const Icon = direction === 'left' ? ChevronLeft : ChevronRight
+  const className = cn(
+    'flex size-10 items-center justify-center rounded-md border',
+    {
+      'pointer-events-none text-muted-foreground/20': isDisabled,
+      'hover:bg-secondary': !isDisabled,
+    },
+  )
+
+  return isDisabled
+    ? (
+        <div className={className}><Icon /></div>
+      )
+    : (
+        <Link href={href} className={className}><Icon /></Link>
       )
 }

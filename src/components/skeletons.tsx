@@ -25,8 +25,10 @@ export function InvoicesPageSkeleton() {
     <>
       <div className={cn('relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-muted-foreground/20 md:h-9', shimmer)} />
       <InvoicesTableSkeleton />
-      <div className="mt-5 flex w-full justify-center">
+      <div className="mt-5 flex w-full justify-center gap-2 md:gap-4">
+        <div className={cn('relative size-10 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />
         <div className={cn('relative h-10 w-32 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />
+        <div className={cn('relative size-10 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />
       </div>
     </>
   )
@@ -183,21 +185,21 @@ export function InvoicesTableSkeletonRow() {
     >
       <TableCell className="whitespace-nowrap py-3 pl-6 pr-3">
         <div className="flex items-center gap-3">
-          <div className="size-[28px] rounded-full bg-muted-foreground/20" />
-          <div className="h-6 w-24 rounded bg-muted-foreground/20" />
+          <div className="size-8 rounded-full bg-muted-foreground/20" />
+          <div className="h-8 w-24 rounded bg-muted-foreground/20" />
         </div>
       </TableCell>
       <TableCell className="whitespace-nowrap p-3">
-        <div className="h-6 w-32 rounded bg-muted-foreground/20" />
+        <div className="h-8 w-32 rounded bg-muted-foreground/20" />
       </TableCell>
       <TableCell className="whitespace-nowrap p-3">
-        <div className="h-6 w-16 rounded bg-muted-foreground/20" />
+        <div className="h-8 w-16 rounded bg-muted-foreground/20" />
       </TableCell>
       <TableCell className="whitespace-nowrap p-3">
-        <div className="h-6 w-16 rounded bg-muted-foreground/20" />
+        <div className="h-8 w-16 rounded bg-muted-foreground/20" />
       </TableCell>
       <TableCell className="whitespace-nowrap p-3">
-        <div className="h-6 w-16 rounded bg-muted-foreground/20" />
+        <div className="h-8 w-16 rounded bg-muted-foreground/20" />
       </TableCell>
       <TableCell className="whitespace-nowrap py-3 pl-6 pr-3">
         <div className="flex justify-end gap-2">
