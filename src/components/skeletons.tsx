@@ -1,12 +1,14 @@
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table'
+
 const shimmer = 'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-muted-foreground/50 before:to-transparent'
 
 export function DashboardPageSkeleton() {
   return (
     <>
-      <div className={cn('relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />
+      <div className={cn('relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-muted-foreground/20 md:h-9', shimmer)} />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <CardGroupSkeleton />
       </div>
@@ -21,7 +23,7 @@ export function DashboardPageSkeleton() {
 export function InvoicesPageSkeleton() {
   return (
     <>
-      <div className={cn('relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />
+      <div className={cn('relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-muted-foreground/20 md:h-9', shimmer)} />
       <InvoicesTableSkeleton />
       <div className="mt-5 flex w-full justify-center">
         <div className={cn('relative h-10 w-32 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />
@@ -110,37 +112,33 @@ export function LatestInvoicesSkeleton() {
 
 export function InvoicesTableSkeleton() {
   return (
-    <div className="mt-6 flow-root">
-      <div className="inline-block min-w-full align-middle">
-        <div className="relative w-full overflow-hidden">
-          <div className="rounded-lg bg-secondary p-4 md:pt-0">
-            <div className="md:hidden">
-              {Array.from({ length: siteConfig.itemsPerPage }).map((_, i) => (
-                <InvoicesMobileRowSkeleton key={i} />
-              ))}
-            </div>
-            <table className="hidden min-w-full md:table">
-              <thead className="rounded-lg text-left text-sm font-normal">
-                <tr>
-                  <th scope="col" className="py-5 pl-6 pr-4 text-left font-medium">Customer</th>
-                  <th scope="col" className="px-3 py-5 font-medium">Email</th>
-                  <th scope="col" className="px-3 py-5 font-medium">Amount</th>
-                  <th scope="col" className="px-3 py-5 font-medium">Date</th>
-                  <th scope="col" className="px-3 py-5 font-medium">Status</th>
-                  <th scope="col" className="relative py-3 pl-6 pr-3">
-                    <span className="sr-only">Edit</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-background">
-                {Array.from({ length: siteConfig.itemsPerPage }).map((_, i) => (
-                  <InvoicesTableSkeletonRow key={i} />
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className={cn('absolute inset-0', shimmer)} />
+    <div className="relative mt-6 w-full overflow-hidden">
+      <div className="rounded-lg bg-secondary p-4 md:pt-0">
+        <div className="md:hidden">
+          {Array.from({ length: siteConfig.itemsPerPage }).map((_, i) => (
+            <InvoicesMobileRowSkeleton key={i} />
+          ))}
         </div>
+        <Table className="hidden min-w-full md:table">
+          <TableHeader className="rounded-lg text-left text-sm font-normal">
+            <TableRow className="border-none">
+              <TableHead className="py-5 pl-6 pr-4 text-left font-medium">Customer</TableHead>
+              <TableHead className="px-3 py-5 font-medium">Email</TableHead>
+              <TableHead className="px-3 py-5 font-medium">Amount</TableHead>
+              <TableHead className="px-3 py-5 font-medium">Date</TableHead>
+              <TableHead className="px-3 py-5 font-medium">Status</TableHead>
+              <TableHead className="relative py-3 pl-6 pr-3">
+                <span className="sr-only">Edit</span>
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody className="bg-background">
+            {Array.from({ length: siteConfig.itemsPerPage }).map((_, i) => (
+              <InvoicesTableSkeletonRow key={i} />
+            ))}
+          </TableBody>
+        </Table>
+        <div className={cn('absolute inset-0', shimmer)} />
       </div>
     </div>
   )
@@ -175,40 +173,38 @@ export function InvoicesMobileRowSkeleton() {
 
 export function InvoicesTableSkeletonRow() {
   return (
-    <tr
+    <TableRow
       className={cn(
-        'w-full border-b text-sm',
-        'last-of-type:border-none',
         '[&:first-child>td:first-child]:rounded-tl-lg',
         '[&:first-child>td:last-child]:rounded-tr-lg',
         '[&:last-child>td:first-child]:rounded-bl-lg',
         '[&:last-child>td:last-child]:rounded-br-lg',
       )}
     >
-      <td className="whitespace-nowrap py-3 pl-6 pr-3">
+      <TableCell className="whitespace-nowrap py-3 pl-6 pr-3">
         <div className="flex items-center gap-3">
           <div className="size-[28px] rounded-full bg-muted-foreground/20" />
           <div className="h-6 w-24 rounded bg-muted-foreground/20" />
         </div>
-      </td>
-      <td className="whitespace-nowrap p-3">
+      </TableCell>
+      <TableCell className="whitespace-nowrap p-3">
         <div className="h-6 w-32 rounded bg-muted-foreground/20" />
-      </td>
-      <td className="whitespace-nowrap p-3">
+      </TableCell>
+      <TableCell className="whitespace-nowrap p-3">
         <div className="h-6 w-16 rounded bg-muted-foreground/20" />
-      </td>
-      <td className="whitespace-nowrap p-3">
+      </TableCell>
+      <TableCell className="whitespace-nowrap p-3">
         <div className="h-6 w-16 rounded bg-muted-foreground/20" />
-      </td>
-      <td className="whitespace-nowrap p-3">
+      </TableCell>
+      <TableCell className="whitespace-nowrap p-3">
         <div className="h-6 w-16 rounded bg-muted-foreground/20" />
-      </td>
-      <td className="whitespace-nowrap py-3 pl-6 pr-3">
+      </TableCell>
+      <TableCell className="whitespace-nowrap py-3 pl-6 pr-3">
         <div className="flex justify-end gap-2">
           <div className="size-8 rounded bg-muted-foreground/20" />
           <div className="size-8 rounded bg-muted-foreground/20" />
         </div>
-      </td>
-    </tr>
+      </TableCell>
+    </TableRow>
   )
 }
