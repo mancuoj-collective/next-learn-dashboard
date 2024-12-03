@@ -48,7 +48,7 @@ export function InvoicesPageSkeleton() {
 export function CardSkeleton() {
   return (
     <div className={cn('relative overflow-hidden rounded-lg bg-secondary p-3 shadow-sm', shimmer)}>
-      <div className="flex px-2 py-4">
+      <div className="flex p-2 md:p-4">
         <div className="size-5 rounded-md bg-muted-foreground/20" />
         <div className="ml-2 h-5 w-16 rounded-md bg-muted-foreground/20 text-sm font-medium" />
       </div>

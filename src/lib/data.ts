@@ -1,4 +1,4 @@
-import { desc, eq, like, or, sql } from 'drizzle-orm'
+import { asc, desc, eq, like, or, sql } from 'drizzle-orm'
 
 import { siteConfig } from '@/config/site'
 import { db } from '@/db'
@@ -140,5 +140,19 @@ export async function fetchInvoiceById(id: number) {
   catch (error) {
     console.error('Database Error:', error)
     throw new Error('Failed to fetch invoice.')
+  }
+}
+
+export async function fetchCustomers() {
+  try {
+    const customersData = await db
+      .select()
+      .from(customers)
+      .orderBy(asc(customers.name))
+    return customersData
+  }
+  catch (error) {
+    console.error('Database Error:', error)
+    throw new Error('Failed to fetch all customers.')
   }
 }

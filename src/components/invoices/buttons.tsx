@@ -1,11 +1,12 @@
 import { PencilIcon, TrashIcon } from 'lucide-react'
+import Link from 'next/link'
 
 import { cn } from '@/lib/utils'
 
 export function CreateInvoiceButton() {
   return (
-    <button
-      type="button"
+    <Link
+      href="/dashboard/invoices/create"
       className={cn(
         'flex h-10 items-center gap-1.5',
         'rounded-md px-4 text-sm font-medium',
@@ -14,7 +15,7 @@ export function CreateInvoiceButton() {
     >
       <span className="hidden md:block">Create Invoice</span>
       <span className="i-mingcute-add-line size-4" />
-    </button>
+    </Link>
   )
 }
 

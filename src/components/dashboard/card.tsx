@@ -23,7 +23,7 @@ export function Card({ title, value, type }: CardProps) {
 
   return (
     <div className="rounded-lg bg-secondary p-3 shadow-sm">
-      <div className="flex px-2 py-4">
+      <div className="flex p-2 md:p-4">
         <Icon className="size-5 text-muted-foreground" />
         <h3 className="ml-2 text-sm font-medium">{title}</h3>
       </div>
