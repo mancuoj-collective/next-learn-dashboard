@@ -1,12 +1,16 @@
 # Next Learn Course Dashboard
 
-Rewrite [Next.js Learn Course](https://nextjs.org/learn) with Drizzle ORM, SQLite and Shadcn/UI
+Rewrite [Next.js Learn Course](https://nextjs.org/learn) with:
 
-## Usage
+- Shadcn/UI
+- Drizzle ORM + SQLite (libsql)
+- React Hook Form
+- Theme Customizer
+
+## Development
 
 ```bash
 pnpm install
-# set .env
 pnpm db:push
 pnpm db:seed
 pnpm dev
