@@ -36,7 +36,7 @@ export function CreateForm({ customers }: { customers: InsertCustomer[] }) {
               name="customerId"
               className={cn(
                 'peer block w-full cursor-pointer rounded-md',
-                'bg-background py-2 pl-10 text-sm',
+                'bg-background py-2 pl-9 text-sm',
                 'focus:outline-none focus:ring-2 focus:ring-primary',
               )}
               defaultValue=""
