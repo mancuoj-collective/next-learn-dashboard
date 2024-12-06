@@ -42,7 +42,7 @@ export async function InvoicesTable({ query, currentPage }: {
                     <p className="text-xs text-muted-foreground">{formatDate(invoice.date)}</p>
                   </div>
                   <div className="flex justify-end gap-2">
-                    <UpdateInvoiceButton />
+                    <UpdateInvoiceButton id={invoice.id} />
                     <DeleteInvoiceButton />
                   </div>
                 </div>
@@ -97,7 +97,7 @@ export async function InvoicesTable({ query, currentPage }: {
                 </TableCell>
                 <TableCell className="whitespace-nowrap py-3 pl-6 pr-3">
                   <div className="flex justify-end gap-2">
-                    <UpdateInvoiceButton />
+                    <UpdateInvoiceButton id={invoice.id} />
                     <DeleteInvoiceButton />
                   </div>
                 </TableCell>

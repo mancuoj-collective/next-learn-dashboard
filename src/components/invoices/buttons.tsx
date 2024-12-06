@@ -19,12 +19,12 @@ export function CreateInvoiceButton() {
   )
 }
 
-export function UpdateInvoiceButton() {
+export function UpdateInvoiceButton({ id }: { id: number }) {
   return (
-    <button type="submit" className="rounded-md border p-2 hover:bg-secondary">
+    <Link href={`/dashboard/invoices/${id}/edit`} className="rounded-md border p-2 hover:bg-secondary">
       <PencilIcon className="size-4" />
       <span className="sr-only">Edit</span>
-    </button>
+    </Link>
   )
 }
 
