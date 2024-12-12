@@ -1,6 +1,7 @@
 import { PencilIcon, TrashIcon } from 'lucide-react'
 import Link from 'next/link'
 
+import { deleteInvoice } from '@/lib/actions'
 import { cn } from '@/lib/utils'
 
 export function CreateInvoiceButton() {
@@ -28,11 +29,18 @@ export function UpdateInvoiceButton({ id }: { id: number }) {
   )
 }
 
-export function DeleteInvoiceButton() {
+export function DeleteInvoiceButton({ id }: { id: number }) {
+  async function deleteInvoiceWithId(_formData: FormData) {
+    'use server'
+    await deleteInvoice(id)
+  }
+
   return (
-    <button type="submit" className="rounded-md border p-2 hover:bg-secondary">
-      <TrashIcon className="size-4" />
-      <span className="sr-only">Delete</span>
-    </button>
+    <form action={deleteInvoiceWithId}>
+      <button type="submit" className="rounded-md border p-2 hover:bg-secondary">
+        <TrashIcon className="size-4" />
+        <span className="sr-only">Delete</span>
+      </button>
+    </form>
   )
 }
