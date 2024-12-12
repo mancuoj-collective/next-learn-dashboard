@@ -63,11 +63,11 @@ export function DeleteInvoiceButton({ id }: { id: number }) {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction asChild>
-            <form action={deleteInvoiceWithId}>
-              <button type="submit">Delete</button>
-            </form>
-          </AlertDialogAction>
+          <form action={deleteInvoiceWithId}>
+            <AlertDialogAction type="submit" className="w-full">
+              Delete
+            </AlertDialogAction>
+          </form>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
