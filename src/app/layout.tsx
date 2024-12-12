@@ -26,11 +26,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn('font-sans antialiased', inter.className)}>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `!function(){var e=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,t=localStorage.getItem("use-dark")||'"system"';('"dark"'===t||e&&'"light"'!==t)&&document.documentElement.classList.toggle("dark",!0);var c=localStorage.getItem("use-config");if(c){var n=JSON.parse(c);document.documentElement.classList.add("theme-"+n.theme);document.documentElement.style.setProperty("--radius",n.radius+"rem")}}();`,
-          }}
-        />
         {env.NODE_ENV === 'production' && (
           <Script src={siteConfig.umamiUrl} data-website-id={siteConfig.umamiId} />
         )}

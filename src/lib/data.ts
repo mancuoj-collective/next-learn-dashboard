@@ -29,7 +29,7 @@ export async function fetchLatestInvoice() {
       })
       .from(invoices)
       .innerJoin(customers, eq(invoices.customer_id, customers.id))
-      .orderBy(desc(invoices.date))
+      .orderBy(desc(invoices.date), desc(invoices.id))
       .limit(5)
 
     return invoicesData.map(invoice => ({
@@ -121,7 +121,7 @@ export async function fetchFilteredInvoices(query: string, currentPage: number) 
           like(lower(invoices.status), `%${query}%`),
         ),
       )
-      .orderBy(desc(invoices.date))
+      .orderBy(desc(invoices.date), desc(invoices.id))
       .limit(siteConfig.itemsPerPage)
       .offset(offset)
     return invoicesData
