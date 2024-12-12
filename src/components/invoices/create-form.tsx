@@ -35,8 +35,8 @@ export function CreateForm({ customers }: { customers: InsertCustomer[] }) {
               id="customer"
               name="customerId"
               className={cn(
-                'peer block w-full cursor-pointer rounded-md',
-                'bg-background py-2 pl-9 text-sm',
+                'peer block w-full cursor-pointer rounded-md bg-background',
+                'py-2 pl-9 text-sm',
                 'focus:outline-none focus:ring-2 focus:ring-primary',
               )}
               defaultValue=""
@@ -67,23 +67,21 @@ export function CreateForm({ customers }: { customers: InsertCustomer[] }) {
           <label htmlFor="amount" className="mb-2 block text-sm font-medium">
             Choose an amount
           </label>
-          <div className="relative mt-2 rounded-md">
-            <div className="relative">
-              <input
-                id="amount"
-                name="amount"
-                type="number"
-                step="0.01"
-                placeholder="Enter USD amount"
-                className={cn(
-                  'peer block w-full rounded-md bg-background',
-                  'py-2 pl-10 text-sm placeholder:text-muted-foreground',
-                  'focus:outline-none focus:ring-2 focus:ring-primary',
-                )}
-                aria-describedby="amount-error"
-              />
-              <DollarSign className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground peer-focus:text-foreground" />
-            </div>
+          <div className="relative">
+            <input
+              id="amount"
+              name="amount"
+              type="number"
+              step="0.01"
+              placeholder="Enter USD amount"
+              className={cn(
+                'peer block w-full rounded-md bg-background',
+                'py-2 pl-10 text-sm placeholder:text-muted-foreground',
+                'focus:outline-none focus:ring-2 focus:ring-primary',
+              )}
+              aria-describedby="amount-error"
+            />
+            <DollarSign className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground peer-focus:text-foreground" />
           </div>
 
           <div id="amount-error" aria-live="polite" aria-atomic="true">
