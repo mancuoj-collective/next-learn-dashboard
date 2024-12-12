@@ -32,7 +32,7 @@ export function InvoicesPageSkeleton() {
           <div className={cn('h-10 rounded-md bg-muted-foreground/20', shimmer)} />
         </div>
         <div className="relative overflow-hidden">
-          <div className={cn('h-10 w-32 rounded-md bg-muted-foreground/20', shimmer)} />
+          <div className={cn('h-10 w-36 rounded-md bg-muted-foreground/20', shimmer)} />
         </div>
       </div>
       <InvoicesTableSkeleton />
@@ -219,5 +219,24 @@ export function InvoicesTableSkeletonRow() {
         </div>
       </TableCell>
     </TableRow>
+  )
+}
+
+export function FormSkeleton() {
+  return (
+    <div className={cn('relative h-[280px] overflow-hidden rounded-lg bg-secondary p-4 md:p-6', shimmer)} />
+  )
+}
+
+export function FormPageSkeleton() {
+  return (
+    <>
+      <div className={cn('relative mb-6 h-8 w-80 overflow-hidden rounded-md bg-muted-foreground/20 md:h-9', shimmer)} />
+      <FormSkeleton />
+      <div className="mt-6 flex justify-end gap-4">
+        <div className={cn('relative h-9 w-24 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />
+        <div className={cn('relative h-9 w-28 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />
+      </div>
+    </>
   )
 }

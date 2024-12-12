@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 
 import { Breadcrumb, CreateForm } from '@/components/invoices'
+import { FormSkeleton } from '@/components/skeletons'
 import { fetchCustomers } from '@/lib/data'
 
 export const metadata: Metadata = {
@@ -18,7 +20,9 @@ export default async function Page() {
           { label: 'Create Invoices', href: '/dashboard/invoices/create', active: true },
         ]}
       />
-      <CreateForm customers={customers} />
+      <Suspense fallback={<FormSkeleton />}>
+        <CreateForm customers={customers} />
+      </Suspense>
     </main>
   )
 }
