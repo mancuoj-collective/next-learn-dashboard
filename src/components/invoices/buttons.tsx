@@ -1,6 +1,17 @@
 import { PencilIcon, TrashIcon } from 'lucide-react'
 import Link from 'next/link'
 
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog'
 import { deleteInvoice } from '@/lib/actions'
 import { cn } from '@/lib/utils'
 
@@ -36,11 +47,29 @@ export function DeleteInvoiceButton({ id }: { id: number }) {
   }
 
   return (
-    <form action={deleteInvoiceWithId}>
-      <button type="submit" className="rounded-md border p-2 hover:bg-secondary">
-        <TrashIcon className="size-4" />
-        <span className="sr-only">Delete</span>
-      </button>
-    </form>
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <button type="button" className="rounded-md border p-2 hover:bg-secondary">
+          <TrashIcon className="size-4" />
+          <span className="sr-only">Delete</span>
+        </button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Are you sure you want to delete this invoice?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This action cannot be undone. This will permanently delete your invoice and remove your data from our servers.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction asChild>
+            <form action={deleteInvoiceWithId}>
+              <button type="submit">Delete</button>
+            </form>
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   )
 }
