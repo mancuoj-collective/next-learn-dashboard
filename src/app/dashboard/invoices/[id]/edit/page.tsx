@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { Breadcrumb } from '@/components/invoices'
+import { EditForm } from '@/components/invoices/edit-form'
 import { fetchCustomers, fetchInvoiceById } from '@/lib/data'
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
           },
         ]}
       />
+      <EditForm invoice={invoice} customers={customers} />
     </main>
   )
 }

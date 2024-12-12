@@ -5,17 +5,26 @@ import Link from 'next/link'
 import { useActionState, useEffect } from 'react'
 import { toast } from 'sonner'
 
-import { Button } from '@/components/ui/button'
 import type { InsertCustomer } from '@/db/schema'
 import type { State } from '@/lib/actions'
-import { createInvoice } from '@/lib/actions'
+import { updateInvoice } from '@/lib/actions'
 import { cn } from '@/lib/utils'
 
+import { Button } from '../ui/button'
 import { StatusBadge } from './badge'
 
-export function CreateForm({ customers }: { customers: InsertCustomer[] }) {
+export function EditForm({ invoice, customers }: {
+  invoice: {
+    id: number
+    customer_id: string
+    amount: number
+    status: string
+  }
+  customers: InsertCustomer[]
+}) {
   const initialState: State = { message: null, errors: {} }
-  const [state, formAction, isPending] = useActionState(createInvoice, initialState)
+  const updateInvoiceAction = updateInvoice.bind(null, invoice.id)
+  const [state, formAction, isPending] = useActionState(updateInvoiceAction, initialState)
 
   useEffect(() => {
     if (state.message) {
@@ -39,7 +48,7 @@ export function CreateForm({ customers }: { customers: InsertCustomer[] }) {
                 'bg-background py-2 pl-9 text-sm',
                 'focus:outline-none focus:ring-2 focus:ring-primary',
               )}
-              defaultValue=""
+              defaultValue={invoice.customer_id}
               aria-describedby="customer-error"
             >
               <option value="" disabled>
@@ -74,6 +83,7 @@ export function CreateForm({ customers }: { customers: InsertCustomer[] }) {
                 name="amount"
                 type="number"
                 step="0.01"
+                defaultValue={invoice.amount / 100}
                 placeholder="Enter USD amount"
                 className={cn(
                   'peer block w-full rounded-md bg-background',
@@ -108,6 +118,7 @@ export function CreateForm({ customers }: { customers: InsertCustomer[] }) {
                   type="radio"
                   value="pending"
                   className="size-4 cursor-pointer accent-primary"
+                  defaultChecked={invoice.status === 'pending'}
                 />
                 <label htmlFor="pending">
                   <StatusBadge status="pending" />
@@ -120,6 +131,7 @@ export function CreateForm({ customers }: { customers: InsertCustomer[] }) {
                   type="radio"
                   value="paid"
                   className="size-4 cursor-pointer accent-primary"
+                  defaultChecked={invoice.status === 'paid'}
                 />
                 <label htmlFor="paid">
                   <StatusBadge status="paid" />
@@ -142,7 +154,7 @@ export function CreateForm({ customers }: { customers: InsertCustomer[] }) {
           <Link href="/dashboard/invoices">Cancel</Link>
         </Button>
         <Button type="submit" disabled={isPending}>
-          {isPending ? 'Creating...' : 'Create invoice'}
+          {isPending ? 'Editing...' : 'Edit invoice'}
         </Button>
       </div>
     </form>
