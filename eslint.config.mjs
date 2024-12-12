@@ -10,6 +10,7 @@ export default defineConfig(
     tailwindCSS: true,
     unocss: false,
     typeChecked: 'essential',
+    ignores: ['src/components/ui/**/*.tsx'],
   },
   {
     rules: {
