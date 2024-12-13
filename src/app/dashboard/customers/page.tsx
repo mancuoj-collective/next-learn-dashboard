@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import type { SearchParams } from 'nuqs'
+import { Suspense } from 'react'
 
-import { CustomersTable } from '@/components/customers'
+import { CustomersTable, CustomersTableSkeleton } from '@/components/customers'
 import { lusitana } from '@/components/fonts'
 import { Search } from '@/components/search'
 import { searchParamsCache } from '@/components/search-params'
@@ -20,7 +21,9 @@ export default async function Page({ searchParams }: { searchParams: Promise<Sea
     <main>
       <h1 className={cn('mb-4 pl-1 text-2xl md:mb-8 md:text-3xl', lusitana.className)}>Customers</h1>
       <Search placeholder="Search customers ..." />
-      <CustomersTable customers={customers} />
+      <Suspense fallback={<CustomersTableSkeleton />}>
+        <CustomersTable customers={customers} />
+      </Suspense>
     </main>
   )
 }

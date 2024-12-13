@@ -19,14 +19,12 @@ export function CustomersTable({ customers }: { customers: {
       <div className="md:hidden">
         {customers.length > 0 ? customers.map(customer => (
           <div key={customer.id} className="mb-3 w-full rounded-md bg-background p-4">
-            <div className="flex items-center justify-between border-b pb-3">
-              <div>
-                <div className="mb-2 flex items-center">
-                  <Image src={customer.imageUrl} alt={`${customer.name}'s profile picture`} width={28} height={28} className="mr-2 rounded-full" />
-                  <p className="text-sm font-medium">{customer.name}</p>
-                </div>
-                <p className="text-sm text-muted-foreground">{customer.email}</p>
+            <div className="border-b pb-3">
+              <div className="mb-2 flex items-center">
+                <Image src={customer.imageUrl} alt={`${customer.name}'s profile picture`} width={28} height={28} className="mr-2 rounded-full" />
+                <p className="text-sm font-medium">{customer.name}</p>
               </div>
+              <p className="text-sm text-muted-foreground">{customer.email}</p>
             </div>
             <div className="flex w-full items-center justify-between border-b py-3">
               <div className="w-1/2 space-y-1">

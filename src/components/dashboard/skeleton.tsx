@@ -47,9 +47,9 @@ export function CardGroupSkeleton() {
 
 export function RevenueChartSkeleton() {
   return (
-    <div className={cn('relative w-full overflow-hidden md:col-span-4', shimmer)}>
-      <div className="mb-4 h-8 w-36 rounded-md bg-muted-foreground/20" />
-      <div className="rounded-lg bg-secondary p-4">
+    <div className="w-full md:col-span-4">
+      <div className={cn('relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />
+      <div className={cn('relative overflow-hidden rounded-lg bg-secondary p-4', shimmer)}>
         <div className="rounded-md bg-background p-4">
           <div className="aspect-square min-h-[260px] w-full md:aspect-video md:h-[360px]" />
         </div>
@@ -79,9 +79,9 @@ export function InvoiceSkeleton() {
 
 export function LatestInvoicesSkeleton() {
   return (
-    <div className={cn('relative flex w-full flex-col overflow-hidden md:col-span-4', shimmer)}>
-      <div className="mb-4 h-8 w-36 rounded-md bg-muted-foreground/20" />
-      <div className="flex grow flex-col justify-between rounded-lg bg-secondary p-4">
+    <div className="flex w-full flex-col md:col-span-4">
+      <div className={cn('relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />
+      <div className={cn('relative flex grow flex-col justify-between overflow-hidden rounded-lg bg-secondary p-4', shimmer)}>
         <div className="grow divide-y rounded-lg bg-background px-6">
           <InvoiceSkeleton />
           <InvoiceSkeleton />

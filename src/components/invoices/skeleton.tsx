@@ -6,6 +6,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 const shimmer = cn(
   'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite]',
   'before:bg-gradient-to-r before:from-transparent before:via-muted-foreground/50 before:to-transparent',
+  'before:z-[1]',
+  'relative',
 )
 
 export function InvoicesPageSkeleton() {
@@ -13,12 +15,8 @@ export function InvoicesPageSkeleton() {
     <>
       <div className={cn('relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-muted-foreground/20 md:mb-8 md:h-9', shimmer)} />
       <div className="flex items-center justify-between gap-2.5">
-        <div className="relative flex-1 overflow-hidden">
-          <div className={cn('h-10 rounded-md bg-muted-foreground/20', shimmer)} />
-        </div>
-        <div className="relative overflow-hidden">
-          <div className={cn('h-10 w-36 rounded-md bg-muted-foreground/20', shimmer)} />
-        </div>
+        <div className={cn('relative h-10 flex-1 overflow-hidden rounded-md bg-muted-foreground/20', shimmer)} />
+        <div className={cn('relative h-10 w-12 overflow-hidden rounded-md bg-muted-foreground/20 md:w-36', shimmer)} />
       </div>
       <InvoicesTableSkeleton />
       <div className="mt-5 flex w-full justify-center gap-2 md:gap-4">
@@ -32,34 +30,31 @@ export function InvoicesPageSkeleton() {
 
 export function InvoicesTableSkeleton() {
   return (
-    <div className="relative mt-6 w-full overflow-hidden">
-      <div className="rounded-lg bg-secondary p-4 md:pt-0">
-        <div className="md:hidden">
-          {Array.from({ length: siteConfig.itemsPerPage }).map((_, i) => (
-            <InvoicesTableMobileRowSkeleton key={i} />
-          ))}
-        </div>
-        <Table className="hidden min-w-full md:table">
-          <TableHeader className="rounded-lg text-left text-sm font-normal">
-            <TableRow className="border-none">
-              <TableHead className="py-5 pl-6 pr-4 text-left font-medium">Customer</TableHead>
-              <TableHead className="px-3 py-5 font-medium">Email</TableHead>
-              <TableHead className="px-3 py-5 font-medium">Amount</TableHead>
-              <TableHead className="px-3 py-5 font-medium">Date</TableHead>
-              <TableHead className="px-3 py-5 font-medium">Status</TableHead>
-              <TableHead className="relative py-3 pl-6 pr-3">
-                <span className="sr-only">Edit</span>
-              </TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody className="bg-background">
-            {Array.from({ length: siteConfig.itemsPerPage }).map((_, i) => (
-              <InvoicesTableRowSkeleton key={i} />
-            ))}
-          </TableBody>
-        </Table>
-        <div className={cn('absolute inset-0', shimmer)} />
+    <div className={cn('relative mt-6 overflow-hidden rounded-lg bg-secondary p-4 md:pt-0', shimmer)}>
+      <div className="md:hidden">
+        {Array.from({ length: siteConfig.itemsPerPage }).map((_, i) => (
+          <InvoicesTableMobileRowSkeleton key={i} />
+        ))}
       </div>
+      <Table className="hidden min-w-full md:table">
+        <TableHeader className="rounded-lg text-left text-sm font-normal">
+          <TableRow className="border-none">
+            <TableHead className="py-5 pl-6 pr-4 text-left font-medium">Customer</TableHead>
+            <TableHead className="px-3 py-5 font-medium">Email</TableHead>
+            <TableHead className="px-3 py-5 font-medium">Amount</TableHead>
+            <TableHead className="px-3 py-5 font-medium">Date</TableHead>
+            <TableHead className="px-3 py-5 font-medium">Status</TableHead>
+            <TableHead className="relative py-3 pl-6 pr-3">
+              <span className="sr-only">Edit</span>
+            </TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody className="bg-background">
+          {Array.from({ length: siteConfig.itemsPerPage }).map((_, i) => (
+            <InvoicesTableRowSkeleton key={i} />
+          ))}
+        </TableBody>
+      </Table>
     </div>
   )
 }
@@ -103,26 +98,26 @@ export function InvoicesTableRowSkeleton() {
     >
       <TableCell className="whitespace-nowrap py-3 pl-6 pr-3">
         <div className="flex items-center gap-3">
-          <div className="size-8 rounded-full bg-muted-foreground/20" />
-          <div className="h-8 w-24 rounded bg-muted-foreground/20" />
+          <div className="size-7 rounded-full bg-muted-foreground/20" />
+          <div className="h-6 w-20 rounded bg-muted-foreground/20" />
         </div>
       </TableCell>
       <TableCell className="whitespace-nowrap p-3">
-        <div className="h-8 w-32 rounded bg-muted-foreground/20" />
+        <div className="h-6 w-28 rounded bg-muted-foreground/20" />
       </TableCell>
       <TableCell className="whitespace-nowrap p-3">
-        <div className="h-8 w-16 rounded bg-muted-foreground/20" />
+        <div className="h-6 w-16 rounded bg-muted-foreground/20" />
       </TableCell>
       <TableCell className="whitespace-nowrap p-3">
-        <div className="h-8 w-16 rounded bg-muted-foreground/20" />
+        <div className="h-6 w-16 rounded bg-muted-foreground/20" />
       </TableCell>
       <TableCell className="whitespace-nowrap p-3">
-        <div className="h-8 w-16 rounded bg-muted-foreground/20" />
+        <div className="h-6 w-16 rounded bg-muted-foreground/20" />
       </TableCell>
       <TableCell className="whitespace-nowrap py-3 pl-6 pr-3">
         <div className="flex justify-end gap-2">
-          <div className="size-8 rounded bg-muted-foreground/20" />
-          <div className="size-8 rounded bg-muted-foreground/20" />
+          <div className="size-7 rounded bg-muted-foreground/20" />
+          <div className="size-7 rounded bg-muted-foreground/20" />
         </div>
       </TableCell>
     </TableRow>

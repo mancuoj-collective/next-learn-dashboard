@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 
-import { Breadcrumb, CreateForm } from '@/components/invoices'
-import { FormSkeleton } from '@/components/skeletons'
+import { Breadcrumb, CreateForm, FormSkeleton } from '@/components/invoices'
 import { fetchCustomers } from '@/lib/data'
 
 export const metadata: Metadata = {
