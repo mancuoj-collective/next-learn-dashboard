@@ -11,7 +11,7 @@ const shimmer = cn(
 export function DashboardPageSkeleton() {
   return (
     <>
-      <div className={cn('relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-muted-foreground/20 md:h-9', shimmer)} />
+      <div className={cn('relative mb-4 h-8 w-36 overflow-hidden rounded-md bg-muted-foreground/20 md:mb-8 md:h-9', shimmer)} />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <CardGroupSkeleton />
       </div>
