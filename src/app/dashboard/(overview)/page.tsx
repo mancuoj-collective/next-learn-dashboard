@@ -1,8 +1,14 @@
 import { Suspense } from 'react'
 
-import { CardGroup, LatestInvoices, RevenueChart } from '@/components/dashboard'
+import {
+  CardGroup,
+  CardGroupSkeleton,
+  LatestInvoices,
+  LatestInvoicesSkeleton,
+  RevenueChart,
+  RevenueChartSkeleton,
+} from '@/components/dashboard'
 import { lusitana } from '@/components/fonts'
-import { CardGroupSkeleton, LatestInvoicesSkeleton, RevenueChartSkeleton } from '@/components/skeletons'
 import { cn } from '@/lib/utils'
 
 export default function Page() {

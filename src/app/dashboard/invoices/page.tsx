@@ -3,10 +3,9 @@ import type { SearchParams } from 'nuqs/server'
 import { Suspense } from 'react'
 
 import { lusitana } from '@/components/fonts'
-import { CreateInvoiceButton, InvoicesPagination, InvoicesTable } from '@/components/invoices'
+import { CreateInvoiceButton, InvoicesPagination, InvoicesTable, InvoicesTableSkeleton } from '@/components/invoices'
 import { Search } from '@/components/search'
 import { searchParamsCache } from '@/components/search-params'
-import { InvoicesTableSkeleton } from '@/components/skeletons'
 import { fetchInvoicePages } from '@/lib/data'
 import { cn } from '@/lib/utils'
 
