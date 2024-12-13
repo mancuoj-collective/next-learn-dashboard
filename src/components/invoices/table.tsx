@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { fetchFilteredInvoices } from '@/lib/data'
 import { cn, formatCurrency, formatDate } from '@/lib/utils'
 
+import { EmptyState } from '../empty-state'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
 import { StatusBadge } from './badge'
 import { DeleteInvoiceButton, UpdateInvoiceButton } from './buttons'
@@ -112,15 +113,6 @@ export async function InvoicesTable({ query, currentPage }: {
               )}
         </TableBody>
       </Table>
-    </div>
-  )
-}
-
-function EmptyState({ className }: { className?: string }) {
-  return (
-    <div className={cn('flex h-32 flex-col items-center justify-center gap-3 text-muted-foreground', className)}>
-      <div className="i-mingcute-terror-line size-10" />
-      <div className="text-sm">No results found.</div>
     </div>
   )
 }

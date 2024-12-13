@@ -129,7 +129,7 @@ export function InvoicesTableSkeleton() {
       <div className="rounded-lg bg-secondary p-4 md:pt-0">
         <div className="md:hidden">
           {Array.from({ length: siteConfig.itemsPerPage }).map((_, i) => (
-            <InvoicesMobileRowSkeleton key={i} />
+            <InvoicesTableMobileRowSkeleton key={i} />
           ))}
         </div>
         <Table className="hidden min-w-full md:table">
@@ -147,7 +147,7 @@ export function InvoicesTableSkeleton() {
           </TableHeader>
           <TableBody className="bg-background">
             {Array.from({ length: siteConfig.itemsPerPage }).map((_, i) => (
-              <InvoicesTableSkeletonRow key={i} />
+              <InvoicesTableRowSkeleton key={i} />
             ))}
           </TableBody>
         </Table>
@@ -157,7 +157,7 @@ export function InvoicesTableSkeleton() {
   )
 }
 
-export function InvoicesMobileRowSkeleton() {
+export function InvoicesTableMobileRowSkeleton() {
   return (
     <div className="mb-3 w-full rounded-md bg-background p-4">
       <div className="flex items-center justify-between border-b pb-3">
@@ -184,7 +184,7 @@ export function InvoicesMobileRowSkeleton() {
   )
 }
 
-export function InvoicesTableSkeletonRow() {
+export function InvoicesTableRowSkeleton() {
   return (
     <TableRow
       className={cn(

@@ -156,3 +156,33 @@ export async function fetchCustomers() {
     throw new Error('Failed to fetch all customers.')
   }
 }
+
+export async function fetchFilteredCustomers(query: string) {
+  try {
+    const customersData = await db
+      .select({
+        id: customers.id,
+        name: customers.name,
+        email: customers.email,
+        imageUrl: customers.image_url,
+        total_invoices: sql<number>`count(*)`.mapWith(Number),
+        total_pending: sql<number>`sum(case when status = 'pending' then amount else 0 end)`.mapWith(Number),
+        total_paid: sql<number>`sum(case when status = 'paid' then amount else 0 end)`.mapWith(Number),
+      })
+      .from(customers)
+      .innerJoin(invoices, eq(customers.id, invoices.customer_id))
+      .where(
+        or(
+          like(lower(customers.name), `%${query}%`),
+          like(lower(customers.email), `%${query}%`),
+        ),
+      )
+      .groupBy(customers.id, customers.name, customers.email, customers.image_url)
+      .orderBy(desc(customers.name))
+    return customersData
+  }
+  catch (error) {
+    console.error('Database Error:', error)
+    throw new Error('Failed to fetch customers.')
+  }
+}
