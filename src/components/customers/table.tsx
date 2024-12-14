@@ -1,19 +1,14 @@
 import Image from 'next/image'
 
+import type { fetchFilteredCustomers } from '@/lib/data'
 import { cn, formatCurrency } from '@/lib/utils'
 
 import { EmptyState } from '../empty-state'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
 
-export function CustomersTable({ customers }: { customers: {
-  id: string
-  name: string
-  email: string
-  imageUrl: string
-  total_invoices: number
-  total_pending: number
-  total_paid: number
-}[] }) {
+export function CustomersTable({ customers }: {
+  customers: Awaited<ReturnType<typeof fetchFilteredCustomers>>
+}) {
   return (
     <div className="mt-6 rounded-lg bg-secondary p-4 md:pt-0">
       <div className="md:hidden">

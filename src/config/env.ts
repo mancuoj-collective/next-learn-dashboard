@@ -6,7 +6,8 @@ import { z } from 'zod'
 export const env = createEnv({
   server: {
     NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
-    DATABASE_URL: z.string().min(1),
+    TURSO_DATABASE_URL: z.string().min(1),
+    TURSO_DATABASE_AUTH_TOKEN: z.string().min(1),
   },
   experimental__runtimeEnv: {},
 })

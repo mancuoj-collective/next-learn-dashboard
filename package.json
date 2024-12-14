@@ -1,7 +1,6 @@
 {
   "packageManager": "pnpm@9.15.0",
   "scripts": {
-    "prebuild": "pnpm db:push && pnpm db:seed",
     "build": "next build",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
