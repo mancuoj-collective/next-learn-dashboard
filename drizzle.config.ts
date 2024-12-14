@@ -5,10 +5,9 @@ import { env } from '@/config/env'
 export default {
   schema: './src/db/schema.ts',
   out: './src/db/migrations',
-  dialect: 'turso',
+  dialect: 'sqlite',
   dbCredentials: {
-    url: env.TURSO_DATABASE_URL,
-    authToken: env.TURSO_DATABASE_AUTH_TOKEN,
+    url: env.DATABASE_URL,
   },
   tablesFilter: 'tmpl_*',
 } satisfies Config
