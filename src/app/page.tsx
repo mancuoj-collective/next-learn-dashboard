@@ -33,7 +33,7 @@ function Login() {
         , brought to you by Vercel.
       </p>
       <Link
-        href="/dashboard"
+        href="/login"
         className={cn(
           'flex items-center gap-4 self-start',
           'bg-primary text-primary-foreground transition-colors hover:bg-primary/80',

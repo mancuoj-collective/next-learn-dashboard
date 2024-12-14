@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import { cn } from '@/lib/utils'
 
+import { signOut } from '../../../auth'
 import { AcmeLogo } from '../acme-logo'
 import { DarkModeToggle, ThemeDialog } from '../theme'
 import { NavLinks } from './nav-links'
@@ -16,7 +17,13 @@ export function SideNav() {
         <NavLinks />
         <div className="hidden h-auto w-full grow rounded-md bg-secondary md:block" />
         <div className="flex items-center justify-between gap-2">
-          <form action="" className="grow">
+          <form
+            action={async () => {
+              'use server'
+              await signOut()
+            }}
+            className="grow"
+          >
             <button
               type="submit"
               className={cn(

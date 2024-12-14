@@ -3,6 +3,8 @@
 import { Toaster as Sonner } from 'sonner'
 
 import { useDark } from '@/hooks/use-dark'
+import { inter } from '../fonts'
+import { cn } from '@/lib/utils'
 
 type ToasterProps = React.ComponentProps<typeof Sonner>
 
@@ -12,7 +14,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
   return (
     <Sonner
       theme={theme as ToasterProps['theme']}
-      className="toaster group"
+      className={cn('toaster group', inter.className)}
       toastOptions={{
         classNames: {
           toast:
