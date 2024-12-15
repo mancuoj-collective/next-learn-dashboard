@@ -1,9 +1,6 @@
 import { ClockIcon, CreditCardIcon, InboxIcon, UsersIcon } from 'lucide-react'
 
 import { fetchCardData } from '@/lib/data'
-import { cn } from '@/lib/utils'
-
-import { lusitana } from '../fonts'
 
 interface CardProps {
   title: string
@@ -27,7 +24,7 @@ export function Card({ title, value, type }: CardProps) {
         <Icon className="size-5 text-muted-foreground" />
         <h3 className="ml-2 text-sm font-medium">{title}</h3>
       </div>
-      <p className={cn('truncate rounded-lg bg-background px-4 py-8 text-center text-2xl', lusitana.className)}>
+      <p className="truncate rounded-lg bg-background px-4 py-8 text-center font-serif text-2xl">
         {value}
       </p>
     </div>

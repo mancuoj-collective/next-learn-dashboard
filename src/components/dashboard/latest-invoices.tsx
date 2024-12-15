@@ -1,18 +1,13 @@
 import Image from 'next/image'
 
 import { fetchLatestInvoice } from '@/lib/data'
-import { cn } from '@/lib/utils'
-
-import { lusitana } from '../fonts'
 
 export async function LatestInvoices() {
   const invoices = await fetchLatestInvoice()
 
   return (
     <div className="flex w-full flex-col md:col-span-4">
-      <h2 className={cn('mb-4 pl-1 text-xl md:text-2xl', lusitana.className)}>
-        Latest Invoices
-      </h2>
+      <h2 className="mb-4 pl-1 font-serif text-xl md:text-2xl">Latest Invoices</h2>
       <div className="flex grow flex-col justify-between rounded-lg bg-secondary p-4">
         <div className="grow divide-y rounded-lg bg-background px-6">
           {invoices.map(invoice => (
@@ -30,7 +25,7 @@ export async function LatestInvoices() {
                   <p className="hidden truncate text-sm text-muted-foreground md:block">{invoice.email}</p>
                 </div>
               </div>
-              <p className={cn('truncate text-sm font-medium md:text-base', lusitana.className)}>
+              <p className="truncate text-sm font-medium md:text-base">
                 {invoice.amount}
               </p>
             </div>

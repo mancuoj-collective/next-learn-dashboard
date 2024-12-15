@@ -2,12 +2,10 @@ import type { Metadata } from 'next'
 import type { SearchParams } from 'nuqs/server'
 import { Suspense } from 'react'
 
-import { lusitana } from '@/components/fonts'
 import { CreateInvoiceButton, InvoicesPagination, InvoicesTable, InvoicesTableSkeleton } from '@/components/invoices'
 import { Search } from '@/components/search'
 import { searchParamsCache } from '@/components/search-params'
 import { fetchInvoicePages } from '@/lib/data'
-import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
   title: 'Invoices',
@@ -19,7 +17,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Sea
 
   return (
     <main>
-      <h1 className={cn('mb-4 pl-1 text-2xl md:mb-8 md:text-3xl', lusitana.className)}>Invoices</h1>
+      <h1 className="mb-4 pl-1 font-serif text-2xl md:mb-8 md:text-3xl">Invoices</h1>
       <div className="flex items-center justify-between gap-2.5">
         <Search placeholder="Search invoices ..." />
         <CreateInvoiceButton />

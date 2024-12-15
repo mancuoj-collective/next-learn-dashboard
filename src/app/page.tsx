@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { AcmeLogo } from '@/components/acme-logo'
-import { lusitana } from '@/components/fonts'
 import { cn } from '@/lib/utils'
 
 export default function Page() {
@@ -21,8 +20,8 @@ export default function Page() {
 
 function Login() {
   return (
-    <div className={cn('flex flex-col justify-center gap-6 rounded-lg bg-secondary text-secondary-foreground', 'px-6 py-10 md:w-2/5 md:px-20')}>
-      <p className={cn('text-xl md:text-3xl md:leading-normal', lusitana.className)}>
+    <div className="flex flex-col justify-center gap-6 rounded-lg bg-secondary px-6 py-10 text-secondary-foreground md:w-2/5 md:px-20">
+      <p className="font-serif text-xl md:text-3xl md:leading-normal">
         <strong>Welcome to Acme.</strong>
         {' '}
         This is the example for the

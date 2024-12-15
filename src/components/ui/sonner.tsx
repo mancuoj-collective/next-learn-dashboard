@@ -3,9 +3,6 @@
 import { Toaster as Sonner } from 'sonner'
 
 import { useDark } from '@/hooks/use-dark'
-import { cn } from '@/lib/utils'
-
-import { inter } from '../fonts'
 
 type ToasterProps = React.ComponentProps<typeof Sonner>
 
@@ -15,7 +12,7 @@ function Toaster({ ...props }: ToasterProps) {
   return (
     <Sonner
       theme={theme as ToasterProps['theme']}
-      className={cn('toaster group', inter.className)}
+      className="toaster group font-sans"
       toastOptions={{
         classNames: {
           toast:

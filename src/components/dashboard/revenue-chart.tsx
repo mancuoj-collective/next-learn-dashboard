@@ -1,7 +1,5 @@
 import { fetchRevenue } from '@/lib/data'
-import { cn } from '@/lib/utils'
 
-import { lusitana } from '../fonts'
 import { Chart } from './chart'
 
 export async function RevenueChart() {
@@ -9,7 +7,7 @@ export async function RevenueChart() {
 
   return (
     <div className="w-full md:col-span-4">
-      <h2 className={cn('mb-4 pl-1 text-xl md:text-2xl', lusitana.className)}>
+      <h2 className="mb-4 pl-1 font-serif text-xl md:text-2xl">
         Recent Revenue
       </h2>
       <div className="rounded-lg bg-secondary p-4">
