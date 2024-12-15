@@ -1,15 +1,19 @@
+import bcrypt from 'bcrypt'
+
 import type { InsertCustomer, InsertInvoice, InsertRevenue, InsertUser } from './schema'
 
 // This file contains placeholder data that you'll be replacing with real data in the Data Fetching chapter:
 // https://nextjs.org/learn/dashboard-app/fetching-data
-const users: InsertUser[] = [
-  {
-    id: '410544b2-4001-4271-9855-fec4b6a6442a',
-    name: 'User',
-    email: 'user@nextmail.com',
-    password: '123456',
-  },
-]
+const createUsers = async (): Promise<InsertUser[]> => {
+  return [
+    {
+      id: '410544b2-4001-4271-9855-fec4b6a6442a',
+      name: 'User',
+      email: 'user@nextmail.com',
+      password: await bcrypt.hash('123456', 10),
+    },
+  ]
+}
 
 const customers: InsertCustomer[] = [
   {
@@ -146,4 +150,4 @@ const revenue: InsertRevenue[] = [
   { month: 'Dec', revenue: 4800 },
 ]
 
-export { customers, invoices, revenue, users }
+export { createUsers, customers, invoices, revenue }
