@@ -10,8 +10,7 @@ export async function fetchRevenue() {
   try {
     const revenueData = await db.select().from(revenue)
     return revenueData
-  }
-  catch (error) {
+  } catch (error) {
     console.error('Database Error:', error)
     throw new Error('Failed to fetch revenue data.')
   }
@@ -36,8 +35,7 @@ export async function fetchLatestInvoice() {
       ...invoice,
       amount: formatCurrency(invoice.amount),
     }))
-  }
-  catch (error) {
+  } catch (error) {
     console.error('Database Error:', error)
     throw new Error('Failed to fetch the latest invoices.')
   }
@@ -66,8 +64,7 @@ export async function fetchCardData() {
       totalPaidInvoices: formatCurrency(invoiceStats[0].paid),
       totalPendingInvoices: formatCurrency(invoiceStats[0].pending),
     }
-  }
-  catch (error) {
+  } catch (error) {
     console.error('Database Error:', error)
     throw new Error('Failed to fetch card data.')
   }
@@ -90,8 +87,7 @@ export async function fetchInvoicePages(query: string) {
       )
     const totalPages = Math.ceil(count[0].count / siteConfig.itemsPerPage)
     return totalPages
-  }
-  catch (error) {
+  } catch (error) {
     console.error('Database Error:', error)
     throw new Error('Failed to fetch total number of invoices.')
   }
@@ -125,8 +121,7 @@ export async function fetchFilteredInvoices(query: string, currentPage: number) 
       .limit(siteConfig.itemsPerPage)
       .offset(offset)
     return invoicesData
-  }
-  catch (error) {
+  } catch (error) {
     console.error('Database Error:', error)
     throw new Error('Failed to fetch invoices.')
   }
@@ -136,8 +131,7 @@ export async function fetchInvoiceById(id: number) {
   try {
     const invoice = await db.select().from(invoices).where(eq(invoices.id, id))
     return invoice[0]
-  }
-  catch (error) {
+  } catch (error) {
     console.error('Database Error:', error)
     throw new Error('Failed to fetch invoice.')
   }
@@ -150,8 +144,7 @@ export async function fetchCustomers() {
       .from(customers)
       .orderBy(asc(customers.name))
     return customersData
-  }
-  catch (error) {
+  } catch (error) {
     console.error('Database Error:', error)
     throw new Error('Failed to fetch all customers.')
   }
@@ -180,8 +173,7 @@ export async function fetchFilteredCustomers(query: string) {
       .groupBy(customers.id, customers.name, customers.email, customers.image_url)
       .orderBy(desc(customers.name))
     return customersData
-  }
-  catch (error) {
+  } catch (error) {
     console.error('Database Error:', error)
     throw new Error('Failed to fetch customers.')
   }

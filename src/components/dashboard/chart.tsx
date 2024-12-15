@@ -6,7 +6,7 @@ import { useIsMobile } from '@/hooks/use-is-mobile'
 
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '../ui/chart'
 
-export function Chart({ revenue }: { revenue: { month: string, revenue: number }[] }) {
+export function Chart({ revenue }: { revenue: Array<{ month: string, revenue: number }> }) {
   const isMobile = useIsMobile()
 
   return (

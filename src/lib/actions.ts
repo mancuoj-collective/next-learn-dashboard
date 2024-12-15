@@ -55,8 +55,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
       status,
       date,
     })
-  }
-  catch {
+  } catch {
     return {
       message: 'Database Error: Failed to Create Invoice.',
     }
@@ -89,8 +88,7 @@ export async function updateInvoice(id: number, prevState: State, formData: Form
     await db.update(invoices)
       .set({ customer_id: customerId, amount: amountInCents, status })
       .where(eq(invoices.id, id))
-  }
-  catch {
+  } catch {
     return {
       message: 'Database Error: Failed to Update Invoice.',
     }
@@ -105,8 +103,7 @@ export async function deleteInvoice(id: number) {
     await db.delete(invoices).where(eq(invoices.id, id))
     revalidatePath('/dashboard')
     return { message: 'Deleted Invoice.' }
-  }
-  catch {
+  } catch {
     return {
       message: 'Database Error: Failed to Delete Invoice.',
     }
@@ -116,8 +113,7 @@ export async function deleteInvoice(id: number) {
 export async function authenticate(prevState: string | undefined, formData: FormData) {
   try {
     await signIn('credentials', formData)
-  }
-  catch (error) {
+  } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
         case 'CredentialsSignin': {
