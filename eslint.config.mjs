@@ -7,7 +7,6 @@ export default defineConfig(
     formatting: {
       braceStyle: '1tbs',
     },
-    ignores: ['src/components/ui/**/*.tsx'],
   },
   {
     rules: {

@@ -3,12 +3,13 @@
 import { Toaster as Sonner } from 'sonner'
 
 import { useDark } from '@/hooks/use-dark'
-import { inter } from '../fonts'
 import { cn } from '@/lib/utils'
+
+import { inter } from '../fonts'
 
 type ToasterProps = React.ComponentProps<typeof Sonner>
 
-const Toaster = ({ ...props }: ToasterProps) => {
+function Toaster({ ...props }: ToasterProps) {
   const { theme = 'system' } = useDark()
 
   return (
