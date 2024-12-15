@@ -93,10 +93,10 @@ function PaginationArrow({ href, direction, isDisabled }: {
   )
   const icon = direction === 'left'
     ? (
-        <span className="i-mingcute-left-line size-4" />
+        <span className="i-mingcute-left-line" />
       )
     : (
-        <span className="i-mingcute-right-line size-4" />
+        <span className="i-mingcute-right-line" />
       )
 
   return isDisabled

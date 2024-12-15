@@ -1,6 +1,8 @@
 import { getIconCollections, iconsPlugin } from '@egoist/tailwindcss-icons'
+import tailwindScrollbar from 'tailwind-scrollbar'
 import type { Config } from 'tailwindcss'
 import { fontFamily } from 'tailwindcss/defaultTheme'
+import tailwindcssAnimate from 'tailwindcss-animate'
 
 export default {
   darkMode: ['class'],
@@ -72,9 +74,13 @@ export default {
     },
   },
   plugins: [
+    tailwindcssAnimate,
+    tailwindScrollbar({
+      nocompatible: true,
+      preferredStrategy: 'pseudoelements',
+    }),
     iconsPlugin({
       collections: getIconCollections(['mingcute', 'simple-icons']),
     }),
-    require('tailwindcss-animate'),
   ],
 } satisfies Config

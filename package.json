@@ -15,7 +15,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@auth/drizzle-adapter": "latest",
     "@libsql/client": "latest",
     "@radix-ui/react-alert-dialog": "latest",
     "@radix-ui/react-dialog": "latest",
@@ -36,8 +35,6 @@
     "react-dom": "latest",
     "recharts": "latest",
     "sonner": "latest",
-    "tailwind-merge": "latest",
-    "tailwindcss-animate": "latest",
     "usehooks-ts": "latest",
     "zod": "latest"
   },
@@ -56,7 +53,10 @@
     "lint-staged": "latest",
     "postcss": "latest",
     "simple-git-hooks": "latest",
+    "tailwind-merge": "latest",
+    "tailwind-scrollbar": "latest",
     "tailwindcss": "latest",
+    "tailwindcss-animate": "latest",
     "tsx": "latest",
     "typescript": "latest"
   },

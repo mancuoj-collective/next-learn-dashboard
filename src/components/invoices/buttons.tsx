@@ -1,4 +1,4 @@
-import { PencilIcon, TrashIcon } from 'lucide-react'
+import { PencilIcon, PlusIcon, TrashIcon } from 'lucide-react'
 import Link from 'next/link'
 
 import {
@@ -26,7 +26,7 @@ export function CreateInvoiceButton() {
       )}
     >
       <span className="hidden md:block">Create Invoice</span>
-      <span className="i-mingcute-add-line size-4" />
+      <PlusIcon className="size-4" />
     </Link>
   )
 }
