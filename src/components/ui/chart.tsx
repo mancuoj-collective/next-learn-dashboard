@@ -37,7 +37,7 @@ function ChartContainer({ ref, id, className, children, config, ...props }: Reac
   children: React.ComponentProps<
       typeof RechartsPrimitive.ResponsiveContainer
   >['children']
-} & { ref: React.RefObject<HTMLDivElement> }) {
+}) {
   const uniqueId = React.useId()
   const chartId = `chart-${id || uniqueId.replaceAll(':', '')}`
 
@@ -104,7 +104,7 @@ function ChartTooltipContent({ ref, active, payload, className, indicator = 'dot
     indicator?: 'line' | 'dot' | 'dashed'
     nameKey?: string
     labelKey?: string
-  } & { ref: React.RefObject<HTMLDivElement> }) {
+  }) {
   const { config } = useChart()
 
   const tooltipLabel = React.useMemo(() => {

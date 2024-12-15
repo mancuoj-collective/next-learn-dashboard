@@ -6,7 +6,7 @@ import { toast } from 'sonner'
 import { authenticate } from '@/lib/actions'
 import { cn } from '@/lib/utils'
 
-import { lusitana } from './fonts'
+import { inter, lusitana } from './fonts'
 import { Button } from './ui/button'
 
 export function LoginForm() {
@@ -20,7 +20,7 @@ export function LoginForm() {
   }, [error])
 
   return (
-    <form action={formAction} className="rounded-lg bg-secondary px-6 py-8">
+    <form action={formAction} className={cn('rounded-lg bg-secondary px-6 py-8', inter.className)}>
       <h1 className={cn('mb-3 text-2xl', lusitana.className)}>
         Please log in to continue.
       </h1>

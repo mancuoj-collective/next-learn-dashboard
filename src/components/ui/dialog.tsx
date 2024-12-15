@@ -28,7 +28,7 @@ function DialogOverlay({ ref, className, ...props }: React.ComponentProps<typeof
 }
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 
-function DialogContent({ ref, className, children, ...props }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & { ref: React.RefObject<React.ElementRef<typeof DialogPrimitive.Content>> }) {
+function DialogContent({ ref, className, children, ...props }: React.ComponentProps<typeof DialogPrimitive.Content>) {
   return (
     <DialogPortal>
       <DialogOverlay />
@@ -83,7 +83,7 @@ function DialogFooter({
 }
 DialogFooter.displayName = 'DialogFooter'
 
-function DialogTitle({ ref, className, ...props }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title> & { ref: React.RefObject<React.ElementRef<typeof DialogPrimitive.Title>> }) {
+function DialogTitle({ ref, className, ...props }: React.ComponentProps<typeof DialogPrimitive.Title>) {
   return (
     <DialogPrimitive.Title
       ref={ref}
@@ -97,7 +97,7 @@ function DialogTitle({ ref, className, ...props }: React.ComponentPropsWithoutRe
 }
 DialogTitle.displayName = DialogPrimitive.Title.displayName
 
-function DialogDescription({ ref, className, ...props }: React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description> & { ref: React.RefObject<React.ElementRef<typeof DialogPrimitive.Description>> }) {
+function DialogDescription({ ref, className, ...props }: React.ComponentProps<typeof DialogPrimitive.Description>) {
   return (
     <DialogPrimitive.Description
       ref={ref}
