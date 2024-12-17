@@ -76,7 +76,7 @@ export function CreateForm({ customers }: { customers: InsertCustomer[] }) {
               placeholder="Enter USD amount"
               className={cn(
                 'peer block w-full rounded-md bg-background',
-                'py-2 pl-10 text-sm placeholder:text-muted-foreground',
+                'py-2 pl-10 pr-3 text-sm placeholder:text-muted-foreground',
                 'focus:outline-none focus:ring-2 focus:ring-primary',
               )}
               aria-describedby="amount-error"
