@@ -1,5 +1,7 @@
 # Next Learn Course Dashboard
 
+A example project built with [next-tmpl](https://github.com/mancuoj-collective/next-tmpl) 😄
+
 ```bash
 pnpm install
 pnpm db:push
